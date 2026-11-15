@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История России | Александровская Академия</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Специфичные стили для страницы истории */
+        .history-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+        .history-hero h1 { margin: 0; font-size: 2.5em; }
+        .history-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.1em; }
+
+        .accordion-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* Блок Эпохи */
+        .era-block {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #eef2f6;
+        }
+
+        .era-header {
+            width: 100%;
+            text-align: left;
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .era-header:hover { background: #eef2f6; }
+        .era-header::after { content: '+'; font-size: 1.5em; color: #667eea; }
+        .era-header.active::after { content: '−'; }
+
+        .era-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding: 0 25px;
+        }
+
+        /* Блок Темы */
+        .topic-block {
+            border-top: 1px solid #eef2f6;
+        }
+        .topic-header {
+            width: 100%;
+            text-align: left;
+            padding: 15px 20px;
+            background: white;
+            border: none;
+            font-size: 1.1em;
+            color: #555;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .topic-header:hover { color: #667eea; }
+        .topic-header::after { content: '›'; font-size: 1.5em; color: #ccc; }
+        .topic-header.active::after { transform: rotate(90deg); color: #667eea; }
+
+        .topic-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+            color: #444;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        
+        /* Оформление текста внутри тем */
+        .topic-content p { margin-bottom: 15px; }
+        .topic-content ul { margin-bottom: 15px; padding-left: 20px; }
+        .topic-content li { margin-bottom: 8px; }
+        
+        /* Выделение важных элементов для ЕГЭ/ОГЭ */
+        .date { font-weight: bold; color: #d35400; background: #fff3e0; padding: 2px 6px; border-radius: 4px; }
+        .term { font-weight: bold; color: #2980b9; border-bottom: 2px dotted #2980b9; cursor: help; }
+        .name { font-weight: bold; color: #27ae60; }
+
+        @media (max-width: 600px) {
+            .history-hero h1 { font-size: 1.8em; }
+            .era-header { font-size: 1.1em; padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка (как на главной) -->
+    <header>
+        <div class="container">
+            <h1>Александровская Академия</h1>
+            <p class="subtitle">История и обществознание для подготовки к экзаменам</p>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="history.html" style="text-decoration: underline;">История</a>
+                <a href="social-studies.html">Обществознание</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Заголовок страницы -->
+    <section class="history-hero">
+        <h1>📚 Курс Истории России</h1>
+        <p>Полная теория от Древней Руси до наших дней. Нажми на эпоху, чтобы начать!</p>
+    </section>
+
+    <!-- Основной контент (Аккордеон) -->
+    <main class="accordion-container">
+
+        <!-- ЭПОХА 1: ДРЕВНЯЯ РУСЬ -->
+        <div class="era-block">
+            <button class="era-header">🏰 Древняя Русь (IX – XIII вв.)</button>
+            <div class="era-content">
+                
+                <!-- Тема 1.1 -->
+                <div class="topic-block">
+                    <button class="topic-header">Восточные славяне и первые князья</button>
+                    <div class="topic-content">
+                        <p>Здесь будет подробный текст о расселении славян, их занятиях и верованиях.</p>
+                        <p>Ключевые даты: <span class="date">862 г.</span> — Призвание варягов. <span class="date">882 г.</span> — Объединение Новгорода и Киева.</p>
+                        <p>Важные термины: <span class="term">полюдье</span>, <span class="term">уроки и погосты</span>.</p>
+                        <p>Личности: <span class="name">Рюрик</span>, <span class="name">Олег Вещий</span>, <span class="name">Игорь</span>, <span class="name">Ольга</span>.</p>
+                    </div>
+                </div>
+
+                <!-- Тема 1.2 -->
+                <div class="topic-block">
+                    <button class="topic-header">Расцвет и упадок Киевской Руси</button>
+                    <div class="topic-content">
+                        <p>Текст о Владимире I, Ярославе Мудром и начале раздробленности.</p>
+                        <p>Ключевые даты: <span class="date">988 г.</span> — Крещение Руси. <span class="date">1054 г.</span> — Смерть Ярослава Мудрого.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ЭПОХА 2: МОСКОВСКОЕ ГОСУДАРСТВО -->
+        <div class="era-block">
+            <button class="era-header">👑 Московское государство (XIV – XVII вв.)</button>
+            <div class="era-content">
+                <div class="topic-block">
+                    <button class="topic-header">Возвышение Москвы и Иван III</button>
+                    <div class="topic-content">
+                        <p>Текст о Дмитрии Донском, Иване III и свержении ига.</p>
+                        <p>Ключевые даты: <span class="date">1380 г.</span> — Куликовская битва. <span class="date">1480 г.</span> — Стояние на реке Угре.</p>
+                    </div>
+                </div>
+                <div class="topic-block">
+                    <button class="topic-header">Смутное время и первые Романовы</button>
+                    <div class="topic-content">
+                        <p>Текст о династическом кризисе, Лжедмитриях и ополчении Минина и Пожарского.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ЭПОХА 3: РОССИЙСКАЯ ИМПЕРИЯ -->
+        <div class="era-block">
+            <button class="era-header">🦅 Российская Империя (XVIII – нач. XX вв.)</button>
+            <div class="era-content">
+                <div class="topic-block">
+                    <button class="topic-header">Эпоха Петра I и Дворцовые перевороты</button>
+                    <div class="topic-content">
+                        <p>Текст о реформах Петра, Северной войне и эпохе фаворитов.</p>
+                    </div>
+                </div>
+                <div class="topic-block">
+                    <button class="topic-header">Александр I и Отечественная война 1812 года</button>
+                    <div class="topic-content">
+                        <p>Текст о реформах Сперанского, Бородинском сражении и декабристах.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ЭПОХА 4: СССР -->
+        <div class="era-block">
+            <button class="era-header">✊ СССР (1917 – 1991 гг.)</button>
+            <div class="era-content">
+                <div class="topic-block">
+                    <button class="topic-header">Революции и Гражданская война</button>
+                    <div class="topic-content">
+                        <p>Текст о Февральской и Октябрьской революциях, военном коммунизме и НЭПе.</p>
+                    </div>
+                </div>
+                <div class="topic-block">
+                    <button class="topic-header">Великая Отечественная война</button>
+                    <div class="topic-content">
+                        <p>Текст о ключевых битвах: Московской, Сталинградской, Курской. Берлинская операция.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Александровская Академия. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Скрипт для работы аккордеона -->
+    <script>
+        // Логика для Эпох
+        const eraHeaders = document.querySelectorAll('.era-header');
+        eraHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('active');
+                const content = header.nextElementSibling;
+                if (header.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = 0;
+                }
+            });
+        });
+
+        // Логика для Тем (с автоматическим расширением Эпохи)
+        const topicHeaders = document.querySelectorAll('.topic-header');
+        topicHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                header.classList.toggle('active');
+                const content = header.nextElementSibling;
+                const eraContent = header.closest('.era-content');
+                
+                // Если тема открывается, нужно расширить и родительскую эпоху
+                if (header.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    if (eraContent) {
+                        eraContent.style.maxHeight = (eraContent.scrollHeight + content.scrollHeight) + "px";
+                    }
+                } else {
+                    content.style.maxHeight = 0;
+                    // Пересчитываем высоту эпохи
+                    if (eraContent) {
+                        eraContent.style.maxHeight = eraContent.scrollHeight + "px";
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
