@@ -6,110 +6,107 @@
     <title>История России | Александровская Академия</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Специфичные стили для страницы истории */
         .history-hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-radius: 0 0 20px 20px;
             margin-bottom: 40px;
         }
         .history-hero h1 { margin: 0; font-size: 2.5em; }
-        .history-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.1em; }
-
-        .accordion-container {
-            max-width: 900px;
+        .history-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.2em; }
+        
+        .content-container {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px 60px;
         }
-
-        /* Блок Эпохи */
-        .era-block {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            overflow: hidden;
-            border: 1px solid #eef2f6;
+        
+        .era-section {
+            margin-bottom: 40px;
         }
-
-        .era-header {
-            width: 100%;
-            text-align: left;
-            padding: 20px 25px;
-            background: #f8f9fa;
-            border: none;
-            font-size: 1.3em;
-            font-weight: bold;
+        
+        .era-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .topic-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid #667eea;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .topic-card h3 {
+            margin: 0 0 10px 0;
             color: #333;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-size: 1.3em;
+        }
+        
+        .topic-card p {
+            color: #666;
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+        }
+        
+        .topic-card a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
             transition: background 0.3s;
         }
-        .era-header:hover { background: #eef2f6; }
-        .era-header::after { content: '+'; font-size: 1.5em; color: #667eea; }
-        .era-header.active::after { content: '−'; }
-
-        .era-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            padding: 0 25px;
-        }
-
-        /* Блок Темы */
-        .topic-block {
-            border-top: 1px solid #eef2f6;
-        }
-        .topic-header {
-            width: 100%;
-            text-align: left;
-            padding: 15px 20px;
-            background: white;
-            border: none;
-            font-size: 1.1em;
-            color: #555;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .topic-header:hover { color: #667eea; }
-        .topic-header::after { content: '›'; font-size: 1.5em; color: #ccc; }
-        .topic-header.active::after { transform: rotate(90deg); color: #667eea; }
-
-        .topic-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding: 0 20px;
-            color: #444;
-            line-height: 1.7;
-            font-size: 1.05em;
+        
+        .topic-card a:hover {
+            background: #764ba2;
         }
         
-        /* Оформление текста внутри тем */
-        .topic-content p { margin-bottom: 15px; }
-        .topic-content ul { margin-bottom: 15px; padding-left: 20px; }
-        .topic-content li { margin-bottom: 8px; }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
         
-        /* Выделение важных элементов для ЕГЭ/ОГЭ */
-        .date { font-weight: bold; color: #d35400; background: #fff3e0; padding: 2px 6px; border-radius: 4px; }
-        .term { font-weight: bold; color: #2980b9; border-bottom: 2px dotted #2980b9; cursor: help; }
-        .name { font-weight: bold; color: #27ae60; }
-
-        @media (max-width: 600px) {
-            .history-hero h1 { font-size: 1.8em; }
-            .era-header { font-size: 1.1em; padding: 15px 20px; }
+        .status-complete {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        @media (max-width: 768px) {
+            .history-hero h1 { font-size: 2em; }
+            .topics-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Шапка (как на главной) -->
     <header>
         <div class="container">
             <h1>Александровская Академия</h1>
@@ -123,97 +120,227 @@
         </div>
     </header>
 
-    <!-- Заголовок страницы -->
     <section class="history-hero">
         <h1>📚 Курс Истории России</h1>
-        <p>Полная теория от Древней Руси до наших дней. Нажми на эпоху, чтобы начать!</p>
+        <p>Полная теория от Древней Руси до наших дней</p>
     </section>
 
-    <!-- Основной контент (Аккордеон) -->
-    <main class="accordion-container">
-
-        <!-- ЭПОХА 1: ДРЕВНЯЯ РУСЬ -->
-        <div class="era-block">
-            <button class="era-header">🏰 Древняя Русь (IX – XIII вв.)</button>
-            <div class="era-content">
-                
-                <!-- Тема 1.1 -->
-                <div class="topic-block">
-                    <button class="topic-header">Восточные славяне и первые князья</button>
-                    <div class="topic-content">
-                        <p>Здесь будет подробный текст о расселении славян, их занятиях и верованиях.</p>
-                        <p>Ключевые даты: <span class="date">862 г.</span> — Призвание варягов. <span class="date">882 г.</span> — Объединение Новгорода и Киева.</p>
-                        <p>Важные термины: <span class="term">полюдье</span>, <span class="term">уроки и погосты</span>.</p>
-                        <p>Личности: <span class="name">Рюрик</span>, <span class="name">Олег Вещий</span>, <span class="name">Игорь</span>, <span class="name">Ольга</span>.</p>
-                    </div>
+    <main class="content-container">
+        
+        <!-- ДРЕВНЯЯ РУСЬ -->
+        <div class="era-section">
+            <h2 class="era-title">🏰 Древняя Русь (IX – XIII вв.)</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Восточные славяне</h3>
+                    <p>Расселение, занятия, религия, общественный строй, соседи</p>
+                    <a href="history-vost-slavyane.html">Читать →</a>
                 </div>
-
-                <!-- Тема 1.2 -->
-                <div class="topic-block">
-                    <button class="topic-header">Расцвет и упадок Киевской Руси</button>
-                    <div class="topic-content">
-                        <p>Текст о Владимире I, Ярославе Мудром и начале раздробленности.</p>
-                        <p>Ключевые даты: <span class="date">988 г.</span> — Крещение Руси. <span class="date">1054 г.</span> — Смерть Ярослава Мудрого.</p>
-                    </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Первые русские князья</h3>
+                    <p>Рюрик, Олег, Игорь, Ольга, Святослав</p>
+                    <a href="history-pervye-knyazya.html">Читать →</a>
                 </div>
-
-            </div>
-        </div>
-
-        <!-- ЭПОХА 2: МОСКОВСКОЕ ГОСУДАРСТВО -->
-        <div class="era-block">
-            <button class="era-header">👑 Московское государство (XIV – XVII вв.)</button>
-            <div class="era-content">
-                <div class="topic-block">
-                    <button class="topic-header">Возвышение Москвы и Иван III</button>
-                    <div class="topic-content">
-                        <p>Текст о Дмитрии Донском, Иване III и свержении ига.</p>
-                        <p>Ключевые даты: <span class="date">1380 г.</span> — Куликовская битва. <span class="date">1480 г.</span> — Стояние на реке Угре.</p>
-                    </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Владимир I и крещение Руси</h3>
+                    <p>Выбор веры, крещение 988 г., значение</p>
+                    <a href="history-vladimir.html">Читать →</a>
                 </div>
-                <div class="topic-block">
-                    <button class="topic-header">Смутное время и первые Романовы</button>
-                    <div class="topic-content">
-                        <p>Текст о династическом кризисе, Лжедмитриях и ополчении Минина и Пожарского.</p>
-                    </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Расцвет и упадок Руси</h3>
+                    <p>Ярослав Мудрый, Русская Правда, раздробленность</p>
+                    <a href="history-rasvet.html">Читать →</a>
                 </div>
             </div>
         </div>
 
-        <!-- ЭПОХА 3: РОССИЙСКАЯ ИМПЕРИЯ -->
-        <div class="era-block">
-            <button class="era-header">🦅 Российская Империя (XVIII – нач. XX вв.)</button>
-            <div class="era-content">
-                <div class="topic-block">
-                    <button class="topic-header">Эпоха Петра I и Дворцовые перевороты</button>
-                    <div class="topic-content">
-                        <p>Текст о реформах Петра, Северной войне и эпохе фаворитов.</p>
-                    </div>
+        <!-- УДЕЛЬНАЯ РУСЬ -->
+        <div class="era-section">
+            <h2 class="era-title">⚔️ Удельная Русь (XIII – XV вв.)</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Монгольское нашествие</h3>
+                    <p>Чингисхан, Батый, битва на Калке, иго</p>
+                    <a href="history-mongoly.html">Читать →</a>
                 </div>
-                <div class="topic-block">
-                    <button class="topic-header">Александр I и Отечественная война 1812 года</button>
-                    <div class="topic-content">
-                        <p>Текст о реформах Сперанского, Бородинском сражении и декабристах.</p>
-                    </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Александр Невский</h3>
+                    <p>Невская битва, Ледовое побоище</p>
+                    <a href="history-nevsky.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Возвышение Москвы</h3>
+                    <p>Даниил, Калита, Дмитрий Донской, Куликовская битва</p>
+                    <a href="history-moskva.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Иван III и создание государства</h3>
+                    <p>Собирание земель, Судебник, освобождение от ига</p>
+                    <a href="history-ivan3.html">Читать →</a>
                 </div>
             </div>
         </div>
 
-        <!-- ЭПОХА 4: СССР -->
-        <div class="era-block">
-            <button class="era-header">✊ СССР (1917 – 1991 гг.)</button>
-            <div class="era-content">
-                <div class="topic-block">
-                    <button class="topic-header">Революции и Гражданская война</button>
-                    <div class="topic-content">
-                        <p>Текст о Февральской и Октябрьской революциях, военном коммунизме и НЭПе.</p>
-                    </div>
+        <!-- МОСКОВСКОЕ ГОСУДАРСТВО -->
+        <div class="era-section">
+            <h2 class="era-title">👑 Московское государство (XVI – XVII вв.)</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Иван IV Грозный</h3>
+                    <p>Избранная рада, опричнина, реформы</p>
+                    <a href="history-ivan4.html">Читать →</a>
                 </div>
-                <div class="topic-block">
-                    <button class="topic-header">Великая Отечественная война</button>
-                    <div class="topic-content">
-                        <p>Текст о ключевых битвах: Московской, Сталинградской, Курской. Берлинская операция.</p>
-                    </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Смутное время</h3>
+                    <p>Кризис, самозванцы, интервенция, Минин и Пожарский</p>
+                    <a href="history-smuta.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Первые Романовы</h3>
+                    <p>Михаил, Алексей, Соборное уложение, бунты</p>
+                    <a href="history-romanovy.html">Читать →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- РОССИЙСКАЯ ИМПЕРИЯ XVIII ВЕК -->
+        <div class="era-section">
+            <h2 class="era-title">🦅 Российская Империя XVIII век</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Петр I Великий</h3>
+                    <p>Реформы, Северная война, европеизация</p>
+                    <a href="history-petr1.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Дворцовые перевороты</h3>
+                    <p>Екатерина I, Петр II, Анна, Елизавета</p>
+                    <a href="history-perevoroty.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Екатерина II Великая</h3>
+                    <p>Просвещенный абсолютизм, реформы, войны</p>
+                    <a href="history-ekaterina2.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Павел I</h3>
+                    <p>Внутренняя политика, переворот 1801 г.</p>
+                    <a href="history-pavel1.html">Читать →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- РОССИЙСКАЯ ИМПЕРИЯ XIX ВЕК -->
+        <div class="era-section">
+            <h2 class="era-title">🏛️ Российская Империя XIX век</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Александр I</h3>
+                    <p>Реформы, Сперанский, война 1812 г., декабристы</p>
+                    <a href="history-alexander1.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Николай I</h3>
+                    <p>Контрреформы, Крымская война, общественная мысль</p>
+                    <a href="history-nicholas1.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Александр II</h3>
+                    <p>Отмена крепостного права, Великие реформы</p>
+                    <a href="history-alexander2.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Александр III</h3>
+                    <p>Контрреформы, экономика, внешняя политика</p>
+                    <a href="history-alexander3.html">Читать →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- НАЧАЛО XX ВЕКА -->
+        <div class="era-section">
+            <h2 class="era-title">✊ Начало XX века и Революции</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Исторический поворот 1917</h3>
+                    <p>Февральская революция, Октябрь, Гражданская война</p>
+                    <a href="history-1917.html">Читать →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- СССР -->
+        <div class="era-section">
+            <h2 class="era-title">☭ СССР (1922 – 1991)</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Вторая Мировая и ВОВ</h3>
+                    <p>Причины, ход войны, ключевые битвы, победа</p>
+                    <a href="history-ww2.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Послевоенное время</h3>
+                    <p>Восстановление, холодная война, сталинизм</p>
+                    <a href="history-postwar.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Эпоха Хрущева</h3>
+                    <p>Оттепель, реформы, внешняя политика</p>
+                    <a href="history-khrushchev.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Эпоха Брежнева</h3>
+                    <p>Застой, экономика, разрядка</p>
+                    <a href="history-brezhnev.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Перестройка</h3>
+                    <p>Горбачев, гласность, распад СССР</p>
+                    <a href="history-perestroika.html">Читать →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ПОСТСОВЕТСКАЯ РОССИЯ -->
+        <div class="era-section">
+            <h2 class="era-title">🇷🇺 Постсоветская Россия (1991 – наши дни)</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Россия в 1990-е</h3>
+                    <p>Ельцин, реформы, кризисы, Чечня</p>
+                    <a href="history-90s.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-complete">✓ Готово</span>
+                    <h3>Россия 2000-2020</h3>
+                    <p>Путин, Медведев, современность</p>
+                    <a href="history-2000s.html">Читать →</a>
                 </div>
             </div>
         </div>
@@ -225,46 +352,5 @@
             <p>&copy; 2026 Александровская Академия. Все права защищены.</p>
         </div>
     </footer>
-
-    <!-- Скрипт для работы аккордеона -->
-    <script>
-        // Логика для Эпох
-        const eraHeaders = document.querySelectorAll('.era-header');
-        eraHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                header.classList.toggle('active');
-                const content = header.nextElementSibling;
-                if (header.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } else {
-                    content.style.maxHeight = 0;
-                }
-            });
-        });
-
-        // Логика для Тем (с автоматическим расширением Эпохи)
-        const topicHeaders = document.querySelectorAll('.topic-header');
-        topicHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                header.classList.toggle('active');
-                const content = header.nextElementSibling;
-                const eraContent = header.closest('.era-content');
-                
-                // Если тема открывается, нужно расширить и родительскую эпоху
-                if (header.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    if (eraContent) {
-                        eraContent.style.maxHeight = (eraContent.scrollHeight + content.scrollHeight) + "px";
-                    }
-                } else {
-                    content.style.maxHeight = 0;
-                    // Пересчитываем высоту эпохи
-                    if (eraContent) {
-                        eraContent.style.maxHeight = eraContent.scrollHeight + "px";
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
