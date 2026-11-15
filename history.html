@@ -24,20 +24,20 @@
         }
         
         .era-section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         
         .era-title {
-            font-size: 1.8em;
+            font-size: 2em;
             color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
             border-bottom: 3px solid #667eea;
         }
         
         .topics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 20px;
         }
         
@@ -45,9 +45,11 @@
             background: white;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
             border-left: 5px solid #667eea;
+            display: flex;
+            flex-direction: column;
         }
         
         .topic-card:hover {
@@ -58,13 +60,15 @@
         .topic-card h3 {
             margin: 0 0 10px 0;
             color: #333;
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
         
         .topic-card p {
             color: #666;
             margin: 0 0 15px 0;
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.95em;
+            flex-grow: 1;
         }
         
         .topic-card a {
@@ -75,6 +79,7 @@
             border-radius: 6px;
             text-decoration: none;
             transition: background 0.3s;
+            align-self: flex-start;
         }
         
         .topic-card a:hover {
@@ -85,7 +90,7 @@
             display: inline-block;
             padding: 4px 10px;
             border-radius: 12px;
-            font-size: 0.8em;
+            font-size: 0.75em;
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -100,9 +105,31 @@
             color: #856404;
         }
         
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
-            .history-hero h1 { font-size: 2em; }
+            .history-hero h1 { font-size: 1.8em; }
             .topics-grid { grid-template-columns: 1fr; }
+            .era-title { font-size: 1.5em; }
         }
     </style>
 </head>
@@ -121,12 +148,16 @@
     </header>
 
     <section class="history-hero">
-        <h1>📚 Курс Истории России</h1>
-        <p>Полная теория от Древней Руси до наших дней</p>
+        <h1>📚 Полный курс Истории России</h1>
+        <p>От Древней Руси до наших дней • Подготовка к ЕГЭ и ОГЭ</p>
     </section>
 
     <main class="content-container">
         
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 3%;">3 темы из ~100</div>
+        </div>
+
         <!-- ДРЕВНЯЯ РУСЬ -->
         <div class="era-section">
             <h2 class="era-title">🏰 Древняя Русь (IX – XIII вв.)</h2>
@@ -138,22 +169,46 @@
                     <a href="history-vost-slavyane.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Первые русские князья</h3>
-                    <p>Рюрик, Олег, Игорь, Ольга, Святослав</p>
-                    <a href="history-pervye-knyazya.html">Читать →</a>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Соседи восточных славян</h3>
+                    <p>Волжская Булгария, Хазарский каганат, Византия, скандинавы</p>
+                    <a href="history-slavyane-neighbors.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Первые русские князья</h3>
+                    <p>Рюрик, Олег Вещий, Игорь, Ольга, Святослав</p>
+                    <a href="history-first-knyazya.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Владимир I и крещение Руси</h3>
                     <p>Выбор веры, крещение 988 г., значение</p>
                     <a href="history-vladimir.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Расцвет и упадок Руси</h3>
                     <p>Ярослав Мудрый, Русская Правда, раздробленность</p>
                     <a href="history-rasvet.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Раздробленность: Новгород и Галицко-Волынское</h3>
+                    <p>Новгородская республика, Галицко-Волынское княжество</p>
+                    <a href="history-razdroblennost.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Владимиро-Суздальское княжество</h3>
+                    <p>Юрий Долгорукий, Андрей Боголюбский, Всеволод Большое Гнездо</p>
+                    <a href="history-vladimir-suzdal.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Культура домонгольской Руси</h3>
+                    <p>Литература, иконопись, архитектура</p>
+                    <a href="history-culture-pre-mongol.html">Читать →</a>
                 </div>
             </div>
         </div>
@@ -163,28 +218,40 @@
             <h2 class="era-title">⚔️ Удельная Русь (XIII – XV вв.)</h2>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Монгольское нашествие</h3>
                     <p>Чингисхан, Батый, битва на Калке, иго</p>
                     <a href="history-mongoly.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Александр Невский</h3>
                     <p>Невская битва, Ледовое побоище</p>
                     <a href="history-nevsky.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Возвышение Москвы</h3>
                     <p>Даниил, Калита, Дмитрий Донской, Куликовская битва</p>
                     <a href="history-moskva.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Иван III и создание государства</h3>
-                    <p>Собирание земель, Судебник, освобождение от ига</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Великое Княжество Литовское</h3>
+                    <p>Миндовг, Гедимин, Ольгерд, Витовт</p>
+                    <a href="history-lithuania.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Создание Московского государства</h3>
+                    <p>Иван III, освобождение от ига, Судебник 1497</p>
                     <a href="history-ivan3.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Культура XIV-XV веков</h3>
+                    <p>Рублёв, Дионисий, зодчество</p>
+                    <a href="history-culture-14-15.html">Читать →</a>
                 </div>
             </div>
         </div>
@@ -194,22 +261,34 @@
             <h2 class="era-title">👑 Московское государство (XVI – XVII вв.)</h2>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Иван IV Грозный</h3>
-                    <p>Избранная рада, опричнина, реформы</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Россия в первой половине XVI века</h3>
+                    <p>Василий III, Елена Глинская, боярское правление</p>
+                    <a href="history-16-century.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Иван IV и реформы Избранной рады</h3>
+                    <p>Земский собор, Судебник, стрелецкое войско</p>
                     <a href="history-ivan4.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Смутное время</h3>
                     <p>Кризис, самозванцы, интервенция, Минин и Пожарский</p>
                     <a href="history-smuta.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Первые Романовы</h3>
                     <p>Михаил, Алексей, Соборное уложение, бунты</p>
                     <a href="history-romanovy.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Культура XVI-XVII веков</h3>
+                    <p>Книгопечатание, узорочье, обмирщение</p>
+                    <a href="history-culture-16-17.html">Читать →</a>
                 </div>
             </div>
         </div>
@@ -219,25 +298,67 @@
             <h2 class="era-title">🦅 Российская Империя XVIII век</h2>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Петр I Великий</h3>
-                    <p>Реформы, Северная война, европеизация</p>
-                    <a href="history-petr1.html">Читать →</a>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Конец XVII века и регентство Софьи</h3>
+                    <p>Фёдор Алексеевич, стрелецкие бунты</p>
+                    <a href="history-end-17.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Петр I: Северная война</h3>
+                    <p>Азовские походы, Полтава, Гангут, Ништадт</p>
+                    <a href="history-petr1-war.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Петр I: реформы армии и экономики</h3>
+                    <p>Рекрутская повинность, мануфактуры, подушная подать</p>
+                    <a href="history-petr1-economy.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Петр I: реформы управления</h3>
+                    <p>Сенат, коллегии, Табель о рангах, губернии</p>
+                    <a href="history-petr1-admin.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Петр I: социальная политика и культура</h3>
+                    <p>Бунты, ассамблеи, Академия наук, барокко</p>
+                    <a href="history-petr1-culture.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Дворцовые перевороты</h3>
-                    <p>Екатерина I, Петр II, Анна, Елизавета</p>
+                    <p>Екатерина I, Петр II, Анна Иоанновна, Елизавета</p>
                     <a href="history-perevoroty.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Екатерина II Великая</h3>
-                    <p>Просвещенный абсолютизм, реформы, войны</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Екатерина II: внутренняя политика</h3>
+                    <p>Просвещенный абсолютизм, Уложенная комиссия, губернская реформа</p>
                     <a href="history-ekaterina2.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Екатерина II: экономика и Пугачёв</h3>
+                    <p>Ассигнации, манифест о свободе предпринимательства, восстание</p>
+                    <a href="history-ekaterina2-economy.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Екатерина II: внешняя политика</h3>
+                    <p>Русско-турецкие войны, разделы Польши</p>
+                    <a href="history-ekaterina2-foreign.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Культура XVIII века</h3>
+                    <p>Классицизм, Ломоносов, Державин, Фонвизин</p>
+                    <a href="history-culture-18.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Павел I</h3>
                     <p>Внутренняя политика, переворот 1801 г.</p>
                     <a href="history-pavel1.html">Читать →</a>
@@ -250,28 +371,76 @@
             <h2 class="era-title">🏛️ Российская Империя XIX век</h2>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Александр I</h3>
-                    <p>Реформы, Сперанский, война 1812 г., декабристы</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Александр I: реформы и Сперанский</h3>
+                    <p>Негласный комитет, вольные хлебопашцы, проект Сперанского</p>
                     <a href="history-alexander1.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Николай I</h3>
-                    <p>Контрреформы, Крымская война, общественная мысль</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Отечественная война 1812 года</h3>
+                    <p>Бородино, пожар Москвы, отступление Наполеона</p>
+                    <a href="history-1812.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Заграничные походы и декабристы</h3>
+                    <p>Венский конгресс, Священный союз, Северное и Южное общества</p>
+                    <a href="history-decabrists.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Николай I: внутренняя политика</h3>
+                    <p>III отделение, кодификация законов, теория официальной народности</p>
                     <a href="history-nicholas1.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Александр II</h3>
-                    <p>Отмена крепостного права, Великие реформы</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Николай I: экономика и Крымская война</h3>
+                    <p>Промышленный переворот, Канкрин, оборона Севастополя</p>
+                    <a href="history-nicholas1-economy.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Общественная мысль и культура первой половины XIX в.</h3>
+                    <p>Западники, славянофилы, Пушкин, Гоголь, романтизм</p>
+                    <a href="history-culture-19-1.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Александр II: отмена крепостного права</h3>
+                    <p>19 февраля 1861, выкупные платежи, итоги</p>
                     <a href="history-alexander2.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Александр III</h3>
-                    <p>Контрреформы, экономика, внешняя политика</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Великие реформы Александра II</h3>
+                    <p>Земская, судебная, городская, военная реформы</p>
+                    <a href="history-great-reforms.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Александр II: народничество и террор</h3>
+                    <p>Хождение в народ, Земля и Воля, Народная воля</p>
+                    <a href="history-narodniki.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Александр III: контрреформы</h3>
+                    <p>Манифест о незыблимости самодержавия, циркуляр о кухаркиных детях</p>
                     <a href="history-alexander3.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Александр III: экономика и внешняя политика</h3>
+                    <p>Вышнеградский, Транссиб, франко-русский союз</p>
+                    <a href="history-alexander3-economy.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Культура второй половины XIX века</h3>
+                    <p>Передвижники, Чайковский, Толстой, Достоевский</p>
+                    <a href="history-culture-19-2.html">Читать →</a>
                 </div>
             </div>
         </div>
@@ -281,10 +450,28 @@
             <h2 class="era-title">✊ Начало XX века и Революции</h2>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Исторический поворот 1917</h3>
-                    <p>Февральская революция, Октябрь, Гражданская война</p>
-                    <a href="history-1917.html">Читать →</a>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Февральская революция 1917</h3>
+                    <p>Причины, ход, падение монархии</p>
+                    <a href="history-february1917.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Двоевластие и Октябрьский переворот</h3>
+                    <p>Временное правительство, большевики, II съезд Советов</p>
+                    <a href="history-october1917.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Гражданская война</h3>
+                    <p>Белые и красные, интервенция, военный коммунизм</p>
+                    <a href="history-civil-war.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Образование СССР и НЭП</h3>
+                    <p>1922 год, культурная революция</p>
+                    <a href="history-ussr-formation.html">Читать →</a>
                 </div>
             </div>
         </div>
@@ -294,31 +481,38 @@
             <h2 class="era-title">☭ СССР (1922 – 1991)</h2>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>СССР в 1930-е: индустриализация и коллективизация</h3>
+                    <p>Пятилетки, Сталин, Большой террор</p>
+                    <a href="history-1930s.html">Читать →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Вторая Мировая и ВОВ</h3>
                     <p>Причины, ход войны, ключевые битвы, победа</p>
                     <a href="history-ww2.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Послевоенное время</h3>
-                    <p>Восстановление, холодная война, сталинизм</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Послевоенное время и начало Холодной войны</h3>
+                    <p>Апогей сталинизма, Фултонская речь, план Маршалла</p>
                     <a href="history-postwar.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
-                    <h3>Эпоха Хрущева</h3>
-                    <p>Оттепель, реформы, внешняя политика</p>
+                    <span class="status-badge status-progress">⏳ В работе</span>
+                    <h3>Эпоха Хрущёва</h3>
+                    <p>Оттепель, XX съезд, целина, Карибский кризис</p>
                     <a href="history-khrushchev.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Эпоха Брежнева</h3>
-                    <p>Застой, экономика, разрядка</p>
+                    <h3>Эпоха Брежнева</h3>
+                    <p>Застой, нефтедоллары, разрядка, Афганистан</p>
                     <a href="history-brezhnev.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Перестройка</h3>
                     <p>Горбачев, гласность, распад СССР</p>
                     <a href="history-perestroika.html">Читать →</a>
@@ -331,15 +525,15 @@
             <h2 class="era-title">🇷🇺 Постсоветская Россия (1991 – наши дни)</h2>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Россия в 1990-е</h3>
-                    <p>Ельцин, реформы, кризисы, Чечня</p>
+                    <p>Ельцин, шоковая терапия, дефолт 1998, Чечня</p>
                     <a href="history-90s.html">Читать →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-complete">✓ Готово</span>
+                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Россия 2000-2020</h3>
-                    <p>Путин, Медведев, современность</p>
+                    <p>Путин, Медведев, вертикаль власти, Крым</p>
                     <a href="history-2000s.html">Читать →</a>
                 </div>
             </div>
