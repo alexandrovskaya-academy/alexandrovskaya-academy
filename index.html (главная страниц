@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Александровская Академия</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Александровская Академия</h1>
+            <p class="subtitle">История и обществознание для подготовки к экзаменам</p>
+            <nav>
+                <a href="#about">О нас</a>
+                <a href="#subjects">Предметы</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>О нас</h2>
+            <p>Александровская Академия — это платформа для изучения истории и обществознания. Здесь вы найдёте теорию, практические задания и курсы для подготовки к экзаменам.</p>
+            <p>Материалы структурированы по темам, что позволяет легко находить нужную информацию и систематизировать знания.</p>
+        </div>
+    </section>
+
+    <section id="subjects" class="section">
+        <div class="container">
+            <h2>Предметы</h2>
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <h3>📚 История</h3>
+                    <p>Полный курс истории России с древнейших времён до наших дней</p>
+                    <a href="history.html" class="btn">Перейти к материалам</a>
+                </div>
+                <div class="subject-card">
+                    <h3>🏛️ Обществознание</h3>
+                    <p>Все разделы обществознания: право, экономика, социология, философия</p>
+                    <a href="social-studies.html" class="btn">Перейти к материалам</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Контакты</h2>
+            <p>Для записи на занятия или вопросов пишите:</p>
+            <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+            <p>Telegram: <a href="https://t.me/your-username">@your-username</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Александровская Академия. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
