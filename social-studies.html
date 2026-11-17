@@ -9,19 +9,79 @@
         .social-hero { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 60px 20px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 40px; }
         .social-hero h1 { margin: 0; font-size: 2.5em; }
         .social-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.2em; }
-        .content-container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
-        .era-section { margin-bottom: 50px; }
-        .era-title { font-size: 2em; color: #11998e; margin-bottom: 25px; padding-bottom: 12px; border-bottom: 3px solid #11998e; }
-        .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-        .topic-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; border-left: 5px solid #11998e; display: flex; flex-direction: column; }
-        .topic-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .topic-card h3 { margin: 0 0 10px 0; color: #333; font-size: 1.2em; }
-        .topic-card p { color: #666; margin: 0 0 15px 0; line-height: 1.5; font-size: 0.95em; flex-grow: 1; }
-        .topic-card a { display: inline-block; background: #11998e; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; transition: background 0.3s; align-self: flex-start; }
+        .content-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
+        
+        /* Стили для аккордеона блоков */
+        .block-accordion {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid #eef2f6;
+        }
+        .block-header {
+            padding: 25px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #11998e;
+            cursor: pointer;
+            list-style: none; /* Убираем стандартный треугольник */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .block-header::-webkit-details-marker { display: none; } /* Для Safari/Chrome */
+        .block-header:hover { background: #f0fdf4; }
+        .block-header::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        details[open] .block-header::after {
+            content: '−';
+        }
+        
+        /* Сетка тем внутри блока */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 30px 30px 30px;
+            border-top: 1px solid #eef2f6;
+        }
+        .topic-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #11998e;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .topic-card h3 { margin: 0 0 10px 0; color: #333; font-size: 1.1em; }
+        .topic-card p { color: #666; margin: 0 0 15px 0; line-height: 1.4; font-size: 0.9em; }
+        .topic-card a {
+            display: inline-block;
+            background: #11998e;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
         .topic-card a:hover { background: #0e7a72; }
-        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 0.75em; font-weight: bold; margin-bottom: 10px; }
-        .status-progress { background: #fff3cd; color: #856404; }
-        @media (max-width: 768px) { .social-hero h1 { font-size: 1.8em; } .topics-grid { grid-template-columns: 1fr; } .era-title { font-size: 1.5em; } }
+
+        @media (max-width: 768px) {
+            .social-hero h1 { font-size: 1.8em; }
+            .topics-grid { grid-template-columns: 1fr; }
+            .block-header { font-size: 1.2em; padding: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -41,135 +101,135 @@
 
     <section class="social-hero">
         <h1>🧠 Курс Обществознания</h1>
-        <p>Все 5 блоков кодификатора ЕГЭ и ОГЭ • Теория, термины и понятия</p>
+        <p>Все 5 блоков кодификатора ЕГЭ и ОГЭ • Нажми на блок, чтобы выбрать тему</p>
     </section>
 
     <main class="content-container">
 
-        <!-- БЛОК 1: ЧЕЛОВЕК И ОБЩЕСТВО -->
-        <div class="era-section">
-            <h2 class="era-title">🧠 Человек и общество</h2>
+        <!-- БЛОК 1 -->
+        <details class="block-accordion">
+            <summary class="block-header">1. Человек и общество</summary>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Природа человека и деятельность</h3>
-                    <p>Биосоциальная сущность, потребности, способности, деятельность и её виды</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <p>Биосоциальная сущность, потребности, способности, деятельность и её виды.</p>
+                    <a href="social-priroda-cheloveka.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Познание и истина</h3>
-                    <p>Чувственное и рациональное познание, виды истины, научное познание</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <p>Чувственное и рациональное познание, виды истины, научное познание.</p>
+                    <a href="social-poznanie.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Общество как система</h3>
-                    <p>Подсистемы общества, глобальные проблемы, прогресс и регресс</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <p>Подсистемы общества, глобальные проблемы, прогресс и регресс.</p>
+                    <a href="social-obschestvo-sistema.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Культура, религия и искусство</h3>
-                    <p>Формы культуры, мировые религии, тенденции развития современного искусства</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <p>Формы культуры, мировые религии, тенденции развития современного искусства.</p>
+                    <a href="social-kultura.html">Читать тему →</a>
                 </div>
             </div>
-        </div>
+        </details>
 
-        <!-- БЛОК 2: ЭКОНОМИКА -->
-        <div class="era-section">
-            <h2 class="era-title">💰 Экономика</h2>
+        <!-- БЛОК 2 -->
+        <details class="block-accordion">
+            <summary class="block-header">2. Экономика</summary>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
-                    <h3>Экономика и её роль</h3>
-                    <p>Экономика и главные вопросы, факторы производства, экономические системы</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <h3>Экономика и её роль в жизни общества</h3>
+                    <p>Главные вопросы экономики, факторы производства, экономические системы.</p>
+                    <a href="social-ekonomika-rol.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
-                    <h3>Рынок и конкуренция</h3>
-                    <p>Спрос и предложение, рыночные структуры, конкуренция и монополия</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <h3>Рынок и рыночный механизм</h3>
+                    <p>Спрос и предложение, рыночные структуры, конкуренция и монополия.</p>
+                    <a href="social-rynok.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Государство в экономике</h3>
-                    <p>Налоги, бюджет, ВВП, инфляция, экономический рост и циклы</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <p>Налоги, бюджет, ВВП, инфляция, экономический рост и циклы.</p>
+                    <a href="social-gosudarstvo-ekonomika.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Финансы и банки</h3>
-                    <p>Банковская система, ценные бумаги, страхование, мировая экономика</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <p>Банковская система, ценные бумаги, страхование, мировая экономика.</p>
+                    <a href="social-finansy.html">Читать тему →</a>
                 </div>
             </div>
-        </div>
+        </details>
 
-        <!-- БЛОК 3: СОЦИАЛЬНЫЕ ОТНОШЕНИЯ -->
-        <div class="era-section">
-            <h2 class="era-title">👥 Социальные отношения</h2>
+        <!-- БЛОК 3 -->
+        <details class="block-accordion">
+            <summary class="block-header">3. Социальные отношения</summary>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
-                    <h3>Социальная структура</h3>
-                    <p>Стратификация, социальная мобильность, социальные нормы и контроль</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <h3>Социальная структура и стратификация</h3>
+                    <p>Социальные группы, стратификация, социальная мобильность.</p>
+                    <a href="social-stratifikaciya.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
-                    <h3>Социальные группы</h3>
-                    <p>Семья, молодежь, этнос, межнациональные отношения, социальные конфликты</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <h3>Социальные нормы и контроль</h3>
+                    <p>Социальные нормы, девиантное поведение, социальный контроль.</p>
+                    <a href="social-normy.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Семья и молодежь</h3>
+                    <p>Функции семьи, типы семей, молодежь как социальная группа.</p>
+                    <a href="social-semya.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Этнос и межнациональные отношения</h3>
+                    <p>Этнос, нация, национальная политика, социальные конфликты.</p>
+                    <a href="social-etnos.html">Читать тему →</a>
                 </div>
             </div>
-        </div>
+        </details>
 
-        <!-- БЛОК 4: ПОЛИТИКА -->
-        <div class="era-section">
-            <h2 class="era-title">🏛️ Политика</h2>
+        <!-- БЛОК 4 -->
+        <details class="block-accordion">
+            <summary class="block-header">4. Политика</summary>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
                     <h3>Власть и государство</h3>
-                    <p>Признаки государства, формы правления, политический режим, демократия</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <p>Признаки государства, формы правления, политический режим, демократия.</p>
+                    <a href="social-vlast.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
-                    <h3>Политическая система</h3>
-                    <p>Гражданское общество, правовое государство, партии, выборы, СМИ</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <h3>Политическая система и гражданское общество</h3>
+                    <p>Гражданское общество, правовое государство, партии, выборы, СМИ.</p>
+                    <a href="social-politsistema.html">Читать тему →</a>
                 </div>
             </div>
-        </div>
+        </details>
 
-        <!-- БЛОК 5: ПРАВО -->
-        <div class="era-section">
-            <h2 class="era-title">⚖️ Право</h2>
+        <!-- БЛОК 5 -->
+        <details class="block-accordion">
+            <summary class="block-header">5. Право</summary>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
-                    <h3>Право в системе соц. норм</h3>
-                    <p>Источники права, Конституция РФ, права и свободы человека и гражданина</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <h3>Право в системе социальных норм</h3>
+                    <p>Источники права, Конституция РФ, права и свободы человека и гражданина.</p>
+                    <a href="social-pravo-sistema.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
-                    <h3>Отрасли российского права</h3>
-                    <p>Гражданское, трудовое, семейное, уголовное, административное право</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <h3>Гражданское право</h3>
+                    <p>Имущественные и личные неимущественные права, договоры, наследство.</p>
+                    <a href="social-grazhdanskoe-pravo.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <span class="status-badge status-progress">⏳ В работе</span>
-                    <h3>Суд и правоохранительные органы</h3>
-                    <p>Судебная система РФ, прокуратура, полиция, нотариат, адвокатура</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <h3>Трудовое и семейное право</h3>
+                    <p>Трудовой договор, права работников, брак, права и обязанности супругов.</p>
+                    <a href="social-trudovoe-pravo.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Уголовное и административное право</h3>
+                    <p>Преступление и наказание, административные правонарушения, суд и правоохранительные органы.</p>
+                    <a href="social-ugolovnoe-pravo.html">Читать тему →</a>
                 </div>
             </div>
-        </div>
+        </details>
 
     </main>
 
