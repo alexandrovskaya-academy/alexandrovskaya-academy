@@ -10,80 +10,20 @@
         .social-hero h1 { margin: 0; font-size: 2.5em; }
         .social-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.2em; }
         .content-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
-        
-        .block-accordion {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-            overflow: hidden;
-            border: 1px solid #eef2f6;
-        }
-        
-        .block-header {
-            padding: 25px 30px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #11998e;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s;
-        }
-        
+        .block-accordion { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 20px; overflow: hidden; border: 1px solid #eef2f6; }
+        .block-header { padding: 25px 30px; font-size: 1.5em; font-weight: bold; color: #11998e; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
         .block-header::-webkit-details-marker { display: none; }
         .block-header:hover { background: #f0fdf4; }
-        .block-header::after {
-            content: '+';
-            font-size: 1.5em;
-            font-weight: bold;
-            transition: transform 0.3s;
-        }
-        
+        .block-header::after { content: '+'; font-size: 1.5em; font-weight: bold; transition: transform 0.3s; }
         details[open] .block-header::after { content: '−'; }
-        
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 0 30px 30px 30px;
-            border-top: 1px solid #eef2f6;
-        }
-        
-        .topic-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #11998e;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .topic-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        
+        .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 0 30px 30px 30px; border-top: 1px solid #eef2f6; }
+        .topic-card { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #11998e; transition: transform 0.2s, box-shadow 0.2s; }
+        .topic-card:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .topic-card h3 { margin: 0 0 10px 0; color: #333; font-size: 1.1em; }
         .topic-card p { color: #666; margin: 0 0 15px 0; line-height: 1.4; font-size: 0.9em; }
-        .topic-card a {
-            display: inline-block;
-            background: #11998e;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: background 0.3s;
-        }
+        .topic-card a { display: inline-block; background: #11998e; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-size: 0.9em; transition: background 0.3s; }
         .topic-card a:hover { background: #0e7a72; }
-
-        @media (max-width: 768px) {
-            .social-hero h1 { font-size: 1.8em; }
-            .topics-grid { grid-template-columns: 1fr; }
-            .block-header { font-size: 1.2em; padding: 20px; }
-        }
+        @media (max-width: 768px) { .social-hero h1 { font-size: 1.8em; } .topics-grid { grid-template-columns: 1fr; } .block-header { font-size: 1.2em; padding: 20px; } }
     </style>
 </head>
 <body>
@@ -103,7 +43,7 @@
 
     <section class="social-hero">
         <h1>🧠 Курс Обществознания</h1>
-        <p>Все 5 блоков кодификатора ЕГЭ и ОГЭ • Нажми на блок, чтобы выбрать тему</p>
+        <p>Все 5 блоков кодификатора ЕГЭ • Нажми на блок, чтобы выбрать тему</p>
     </section>
 
     <main class="content-container">
@@ -113,182 +53,45 @@
             <summary class="block-header">1. Человек и общество. Духовная культура</summary>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <h3>Природа человека и деятельность</h3>
-                    <p>Биосоциальная природа человека. Индивид, индивидуальность, личность. Структура деятельности.</p>
+                    <h3>Человек как биосоциальное существо</h3>
+                    <p>Биологическое и социальное в человеке. Индивид, индивидуальность, личность. Социализация.</p>
                     <a href="social-priroda-cheloveka.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <h3>Мировоззрение и познание</h3>
-                    <p>Мировоззрение, его виды. Познание мира. Чувственное и рациональное познание. Истина.</p>
-                    <a href="social-poznanie.html">Читать тему →</a>
+                    <h3>Сознание и самосознание</h3>
+                    <p>Индивидуальное и общественное сознание. Самосознание. Социальное поведение.</p>
+                    <a href="social-soznanie.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <h3>Общество как система</h3>
-                    <p>Подсистемы общества. Общественные отношения. Социальные институты. Типы общества.</p>
+                    <h3>Познание, мышление и истина</h3>
+                    <p>Чувственное и рациональное познание. Мышление. Истина и её критерии.</p>
+                    <a href="social-poznanie-myshlenie.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Общество как система и социальные институты</h3>
+                    <p>Сферы жизни общества. Общественные отношения. Социальные институты.</p>
                     <a href="social-obschestvo-sistema.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <h3>Культура и мораль</h3>
-                    <p>Формы культуры. Материальная и духовная культура. Мораль. Нравственность.</p>
+                    <h3>Типы обществ. Массовая коммуникация</h3>
+                    <p>Традиционное, индустриальное, постиндустриальное общество. Массовая коммуникация.</p>
+                    <a href="social-tipy-obschestv.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Общественный прогресс. Глобализация</h3>
+                    <p>Прогресс, регресс, стагнация. Реформа, эволюция, революция. Глобальные проблемы.</p>
+                    <a href="social-progress.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Духовные ценности российского общества</h3>
+                    <p>Традиционные ценности. Вклад российской культуры. Указ Президента № 400.</p>
+                    <a href="social-dukhnost-tsennosti.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <h3>Культура: формы, функции, виды</h3>
+                    <p>Материальная и духовная культура. Элитарная, народная, массовая. Функции культуры.</p>
                     <a href="social-kultura.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
-                    <h3>Наука и образование</h3>
-                    <p>Наука, её функции. Образование в современном обществе. Российская система образования.</p>
-                    <a href="social-nauka-obrazovanie.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Религия и искусство</h3>
-                    <p>Религия, её роль в жизни общества. Мировые религии. Искусство, его функции.</p>
-                    <a href="social-religiya-iskusstvo.html">Читать тему →</a>
-                </div>
-            </div>
-        </details>
-
-        <!-- БЛОК 2 -->
-        <details class="block-accordion">
-            <summary class="block-header">2. Экономическая жизнь общества</summary>
-            <div class="topics-grid">
-                <div class="topic-card">
-                    <h3>Экономика и экономические системы</h3>
-                    <p>Роль экономики. Главные вопросы экономики. Факторы производства. Типы экономических систем.</p>
-                    <a href="social-ekonomika-sistemy.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Рынок и конкуренция</h3>
-                    <p>Рыночный механизм. Спрос и предложение. Типы рыночных структур. Конкуренция.</p>
-                    <a href="social-rynok.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Предприятие и предпринимательство</h3>
-                    <p>Факторы производства. Издержки. Прибыль. Организационно-правовые формы.</p>
-                    <a href="social-predpriyatie.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Финансы и банки</h3>
-                    <p>Банковская система. Центральный Банк РФ. Инфляция. Денежно-кредитная политика.</p>
-                    <a href="social-finansy.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Государство в экономике</h3>
-                    <p>Экономические функции государства. Налоги. Государственный бюджет. Экономический рост.</p>
-                    <a href="social-gosudarstvo-ekonomika.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Мировая экономика</h3>
-                    <p>Международное разделение труда. Внешняя торговля. Платёжный баланс. Импортозамещение.</p>
-                    <a href="social-mirovaya-ekonomika.html">Читать тему →</a>
-                </div>
-            </div>
-        </details>
-
-        <!-- БЛОК 3 -->
-        <details class="block-accordion">
-            <summary class="block-header">3. Социальная сфера</summary>
-            <div class="topics-grid">
-                <div class="topic-card">
-                    <h3>Социальная структура и стратификация</h3>
-                    <p>Социальные группы. Социальная стратификация. Социальное неравенство. Социальная мобильность.</p>
-                    <a href="social-stratifikaciya.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Социальные статусы и роли</h3>
-                    <p>Социальный статус. Социальная роль. Социализация личности.</p>
-                    <a href="social-statusy-roli.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Семья и молодёжь</h3>
-                    <p>Функции семьи. Типы семьи. Молодёжь как социальная группа. Молодёжная субкультура.</p>
-                    <a href="social-semya-molodezh.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Этнос и межнациональные отношения</h3>
-                    <p>Этнические общности. Нация. Этнические отношения. Национальная политика в РФ.</p>
-                    <a href="social-etnos.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Социальные нормы и девиантное поведение</h3>
-                    <p>Социальные нормы. Девиантное поведение. Социальный контроль. Социальные конфликты.</p>
-                    <a href="social-normy-deviantnoe.html">Читать тему →</a>
-                </div>
-            </div>
-        </details>
-
-        <!-- БЛОК 4 -->
-        <details class="block-accordion">
-            <summary class="block-header">4. Политическая сфера</summary>
-            <div class="topics-grid">
-                <div class="topic-card">
-                    <h3>Власть и государство</h3>
-                    <p>Политическая власть. Государство, его признаки и функции. Формы государства.</p>
-                    <a href="social-vlast-gosudarstvo.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Политическая система и демократия</h3>
-                    <p>Политическая система. Демократия. Гражданское общество. Правовое государство.</p>
-                    <a href="social-politsistema.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Политические партии и идеологии</h3>
-                    <p>Политические партии. Типы партийных систем. Политические идеологии.</p>
-                    <a href="social-partii-ideologii.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Избирательная система и политическое участие</h3>
-                    <p>Избирательная система. Типы избирательных систем. Политическое участие. Абсентеизм.</p>
-                    <a href="social-izbiratelnaya-sistema.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Государственное управление в РФ</h3>
-                    <p>Федеративное устройство РФ. Субъекты государственной власти. Государственная служба.</p>
-                    <a href="social-gosudarstvennoe-upravlenie.html">Читать тему →</a>
-                </div>
-            </div>
-        </details>
-
-        <!-- БЛОК 5 -->
-        <details class="block-accordion">
-            <summary class="block-header">5. Правовое регулирование</summary>
-            <div class="topics-grid">
-                <div class="topic-card">
-                    <h3>Право в системе социальных норм</h3>
-                    <p>Понятие и признаки права. Источники права. Система права. Правоотношения.</p>
-                    <a href="social-pravo-sistema.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Конституция РФ и права человека</h3>
-                    <p>Основы конституционного строя. Гражданство. Права и свободы человека и гражданина.</p>
-                    <a href="social-konstituciya.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Гражданское право</h3>
-                    <p>Гражданско-правовые отношения. Субъекты гражданского права. Правоспособность и дееспособность.</p>
-                    <a href="social-grazhdanskoe-pravo.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Семейное и трудовое право</h3>
-                    <p>Брак и семья. Права супругов. Трудовой договор. Права и обязанности работников.</p>
-                    <a href="social-semeinoe-trudovoe.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Уголовное и административное право</h3>
-                    <p>Преступление и наказание. Административные правонарушения. Виды юридической ответственности.</p>
-                    <a href="social-ugolovnoe-pravo.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
-                    <h3>Судопроизводство и правоохранительные органы</h3>
-                    <p>Гражданский процесс. Уголовный процесс. Правоохранительные органы РФ.</p>
-                    <a href="social-sudoproizvodstvo.html">Читать тему →</a>
-                </div>
-            </div>
-        </details>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Александровская Академия. Все права защищены.</p>
-        </div>
-    </footer>
-</body>
-</html>
+                    <h3>Мораль и нравственность</h3>
+                    <p>Категории морали. Функции морали
