@@ -5,6 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Александровская Академия</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .feature-card a {
+            display: inline-block;
+            margin-top: 15px;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+        .feature-card a:hover {
+            background: #764ba2;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,51 +63,42 @@
             <h1>Александровская Академия</h1>
             <p class="subtitle">История и обществознание для подготовки к экзаменам</p>
             <nav>
-                <a href="#about">О нас</a>
-                <a href="#subjects">Предметы</a>
-                <a href="test-example.html">Тесты</a>
+                <a href="index.html" style="text-decoration: underline;">Главная</a>
+                <a href="history.html">История</a>
+                <a href="social-studies.html">Обществознание</a>
+                <a href="tests.html">Тесты</a>
                 <a href="#contact">Контакты</a>
             </nav>
         </div>
     </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2>О нас</h2>
-            <p>Александровская Академия — это платформа для изучения истории и обществознания. Здесь вы найдёте теорию, практические задания и курсы для подготовки к экзаменам.</p>
-            <p>Материалы структурированы по темам, что позволяет легко находить нужную информацию и систематизировать знания.</p>
-        </div>
+    <section class="hero">
+        <h1>Добро пожаловать!</h1>
+        <p>Подготовка к ЕГЭ и ОГЭ по истории и обществознанию</p>
     </section>
 
-    <section id="subjects" class="section">
-        <div class="container">
-            <h2>Предметы</h2>
-            <div class="subjects-grid">
-                <div class="subject-card">
-                    <h3>📚 История</h3>
-                    <p>Полный курс истории России с древнейших времён до наших дней</p>
-                    <a href="history.html" class="btn">Перейти к материалам</a>
-                </div>
-                <div class="subject-card">
-                    <h3>🏛️ Обществознание</h3>
-                    <p>Все разделы обществознания: право, экономика, социология, философия</p>
-                    <a href="social-studies.html" class="btn">Перейти к материалам</a>
-                </div>
-            </div>
+    <main class="features">
+        <div class="feature-card">
+            <h3>📚 История России</h3>
+            <p>Полный курс от Древней Руси до наших дней</p>
+            <a href="history.html">Перейти к курсу →</a>
         </div>
-    </section>
+        <div class="feature-card">
+            <h3>🧠 Обществознание</h3>
+            <p>Все разделы для подготовки к экзаменам</p>
+            <a href="social-studies.html">Перейти к курсу →</a>
+        </div>
+        <div class="feature-card">
+            <h3>✍️ Тесты и практика</h3>
+            <p>Проверь свои знания с помощью интерактивных тестов</p>
+            <a href="tests.html">Перейти к тестам →</a>
+        </div>
+    </main>
 
-    <section id="contact" class="section">
+    <footer id="contact">
         <div class="container">
             <h2>Контакты</h2>
-            <p>Для записи на занятия или вопросов пишите:</p>
-            <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-            <p>Telegram: <a href="https://t.me/your-username">@your-username</a></p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
+            <p>Свяжитесь с Александром для записи на занятия</p>
             <p>&copy; 2026 Александровская Академия. Все права защищены.</p>
         </div>
     </footer>
