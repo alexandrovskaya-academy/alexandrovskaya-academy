@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест для учеников | Александровская Академия</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .test-container { max-width: 800px; margin: 40px auto; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .question { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .question h3 { color: #333; margin-bottom: 15px; }
+        .options label { display: block; margin-bottom: 10px; cursor: pointer; padding: 10px; border-radius: 6px; transition: background 0.2s; }
+        .options label:hover { background: #f0f4ff; }
+        .btn-check { background: #667eea; color: white; border: none; padding: 12px 30px; border-radius: 6px; font-size: 1.1em; cursor: pointer; }
+        .btn-check:hover { background: #764ba2; }
+        .result { margin-top: 20px; font-size: 1.2em; font-weight: bold; padding: 15px; border-radius: 6px; display: none; }
+        .correct { background: #d4edda; color: #155724; }
+        .incorrect { background: #f8d7da; color: #721c24; }
+        #login-screen { text-align: center; padding: 50px 20px; }
+        #login-screen input { padding: 10px; font-size: 1em; border: 2px solid #ddd; border-radius: 6px; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Александровская Академия</h1>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="history.html">История</a>
+                <a href="social-studies.html">Обществознание</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Экран ввода пароля -->
+        <div id="login-screen" class="test-container">
+            <h2>🔒 Доступ только для учеников</h2>
+            <p>Введите пароль, который дал Александр:</p>
+            <input type="password" id="password-input" placeholder="Пароль">
+            <button class="btn-check" onclick="checkPassword()">Войти</button>
+            <p id="error-msg" style="color: red; margin-top: 15px; display: none;">Неверный пароль!</p>
+        </div>
+
+        <!-- Сам тест (скрыт по умолчанию) -->
+        <div id="quiz-screen" class="test-container" style="display: none;">
+            <h2>Тест: Экономика (Введение)</h2>
+            
+            <div class="question">
+                <h3>1. Что из перечисленного является главным вопросом экономики?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Как распределить ограниченные ресурсы?</label>
+                    <label><input type="radio" name="q1" value="b"> Как напечатать больше денег?</label>
+                    <label><input type="radio" name="q1" value="c"> Как отменить налоги?</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Что такое факторы производства?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> Только деньги и станки</label>
+                    <label><input type="radio" name="q2" value="b"> Ресурсы, используемые для создания благ (труд, земля, капитал)</label>
+                    <label><input type="radio" name="q2" value="c"> Законы спроса и предложения</label>
+                </div>
+            </div>
+
+            <button class="btn-check" onclick="checkAnswers()">Проверить результаты</button>
+            <div id="result-box" class="result"></div>
+        </div>
+    </main>
+
+    <script>
+        // ПАРОЛЬ (Можешь поменять на любой)
+        const SECRET_PASSWORD = "pupil2026"; 
+
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            if (input === SECRET_PASSWORD) {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('quiz-screen').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+
+        function checkAnswers() {
+            let score = 0;
+            const total = 2; // Количество вопросов
+            
+            // Правильные ответы
+            if (document.querySelector('input[name="q1"]:checked')?.value === 'a') score++;
+            if (document.querySelector('input[name="q2"]:checked')?.value === 'b') score++;
+
+            const resultBox = document.getElementById('result-box');
+            resultBox.style.display = 'block';
+            
+            if (score === total) {
+                resultBox.className = 'result correct';
+                resultBox.innerHTML = `🎉 Отлично! Вы набрали ${score} из ${total} баллов!`;
+            } else {
+                resultBox.className = 'result incorrect';
+                resultBox.innerHTML = `📚 Вы набрали ${score} из ${total}. Стоит повторить теорию!`;
+            }
+        }
+    </script>
+</body>
+</html>
