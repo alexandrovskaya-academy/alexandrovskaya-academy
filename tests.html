@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Банк Тестов | Александровская Академия</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tests-hero { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 60px 20px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 40px; }
+        .tests-hero h1 { margin: 0; font-size: 2.5em; }
+        .tests-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.2em; }
+        .content-container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+        .era-section { margin-bottom: 50px; }
+        .era-title { font-size: 2em; color: #f5576c; margin-bottom: 25px; padding-bottom: 12px; border-bottom: 3px solid #f5576c; }
+        .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .topic-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; border-left: 5px solid #f5576c; display: flex; flex-direction: column; }
+        .topic-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .topic-card h3 { margin: 0 0 10px 0; color: #333; font-size: 1.2em; }
+        .topic-card p { color: #666; margin: 0 0 15px 0; line-height: 1.5; font-size: 0.95em; flex-grow: 1; }
+        .topic-card a { display: inline-block; background: #f5576c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; transition: background 0.3s; align-self: flex-start; }
+        .topic-card a:hover { background: #d83a5a; }
+        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 0.75em; font-weight: bold; margin-bottom: 10px; }
+        .status-locked { background: #e2e3e5; color: #383d41; }
+        .status-active { background: #d4edda; color: #155724; }
+        @media (max-width: 768px) { .tests-hero h1 { font-size: 1.8em; } .topics-grid { grid-template-columns: 1fr; } .era-title { font-size: 1.5em; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Александровская Академия</h1>
+            <p class="subtitle">История и обществознание для подготовки к экзаменам</p>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="history.html">История</a>
+                <a href="social-studies.html">Обществознание</a>
+                <a href="tests.html" style="text-decoration: underline;">Тесты</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="tests-hero">
+        <h1>🔒 Банк Тестов и Практики</h1>
+        <p>Материалы доступны только для учеников Александра. Пароль выдаётся на занятиях.</p>
+    </section>
+
+    <main class="content-container">
+
+        <!-- ИСТОРИЯ -->
+        <div class="era-section">
+            <h2 class="era-title">🏰 Тесты по Истории</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-active">✓ Доступен</span>
+                    <h3>Древняя Русь и Удельный период</h3>
+                    <p>15 вопросов: Рюрик, Ярослав Мудрый, Монгольское нашествие, Александр Невский.</p>
+                    <a href="test-history-ancient-rus.html">Начать тест →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-locked">🔒 Закрыт</span>
+                    <h3>Московское государство (XVI-XVII вв.)</h3>
+                    <p>Иван Грозный, Смута, Первые Романовы. (Откроется после прохождения темы)</p>
+                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-locked">🔒 Закрыт</span>
+                    <h3>Российская Империя (XVIII-XIX вв.)</h3>
+                    <p>Петр I, Екатерина II, Александр I, Реформы Александра II.</p>
+                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ОБЩЕСТВОЗНАНИЕ -->
+        <div class="era-section">
+            <h2 class="era-title">🧠 Тесты по Обществознанию</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <span class="status-badge status-locked">🔒 Закрыт</span>
+                    <h3>Человек и Общество</h3>
+                    <p>Природа человека, деятельность, познание, культура.</p>
+                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-active">✓ Доступен</span>
+                    <h3>Экономика: Введение</h3>
+                    <p>10 вопросов: факторы производства, спрос и предложение, ВВП.</p>
+                    <a href="test-social-economy.html">Начать тест →</a>
+                </div>
+                <div class="topic-card">
+                    <span class="status-badge status-locked">🔒 Закрыт</span>
+                    <h3>Право и Конституция РФ</h3>
+                    <p>Отрасли права, права и обязанности граждан, ветви власти.</p>
+                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="background: #fff3cd; border-left-color: #ffc107; padding: 20px; border-radius: 8px; margin-top: 40px;">
+            <h3 style="margin-top: 0; color: #856404;">💡 Как получить доступ?</h3>
+            <p style="margin-bottom: 0; color: #856404;">Пароль для входа в тесты: <strong>istoriya2026</strong> (Пароль может меняться, актуальный пароль всегда в нашем Telegram-чате!). Если тест не открывается — напиши Александру.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Александровская Академия. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
