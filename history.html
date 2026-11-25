@@ -12,9 +12,9 @@
             --text-color: #333;
             --text-muted: #666;
             --border-color: #eef2f6;
-            --hover-bg: #fef3f2;
-            --accent: #e74c3c;
-            --accent-dark: #c0392b;
+            --hover-bg: #f5f3ff;
+            --accent: #667eea; /* Фиолетовый цвет истории */
+            --accent-dark: #764ba2;
         }
 
         body.dark-theme {
@@ -23,9 +23,9 @@
             --text-color: #e2e8f0;
             --text-muted: #94a3b8;
             --border-color: #334155;
-            --hover-bg: #3a1e1e;
-            --accent: #ef4444;
-            --accent-dark: #dc2626;
+            --hover-bg: #2d2446;
+            --accent: #818cf8;
+            --accent-dark: #667eea;
         }
 
         body {
@@ -34,7 +34,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        .history-hero { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 60px 20px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 40px; }
+        .history-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 20px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 40px; }
         .history-hero h1 { margin: 0; font-size: 2.5em; }
         .history-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.2em; }
         .content-container { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
@@ -214,27 +214,10 @@
             overflow: hidden;
         }
 
-        .topic-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(192, 57, 43, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-
         .topic-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.2);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
             border-left-width: 8px;
-        }
-
-        .topic-card:hover::before {
-            opacity: 1;
         }
 
         .topic-card.hidden {
@@ -378,17 +361,23 @@
         <!-- БЛОК 1: ДРЕВНЯЯ РУСЬ -->
         <details class="block-accordion" id="block-1">
             <summary class="block-header">
-                <span>🏰 Древняя Русь (IX–XIII вв.) <span class="block-counter">Скоро</span></span>
+                <span>🏰 Древняя Русь (IX–XIII вв.) <span class="block-counter">Готово</span></span>
             </summary>
             <div class="block-description">
-                Образование Древнерусского государства, князья, крещение Руси, феодальная раздробленность, монгольское нашествие.
+                Образование государства, первые князья, крещение Руси, феодальная раздробленность, монгольское нашествие.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">⏳</div>
-                    <h3>Скоро будет доступно</h3>
-                    <p>Темы по Древней Руси находятся в разработке.</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <div class="topic-icon">📜</div>
+                    <h3>Древняя Русь и первые князья</h3>
+                    <p>Рюрик, Олег, Ольга, Святослав, Владимир, Ярослав Мудрый.</p>
+                    <a href="history-ancient-rus.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">⚔️</div>
+                    <h3>Монгольское нашествие и Александр Невский</h3>
+                    <p>Битва на Калке, нашествие Батыя, Ледовое побоище, ордынское иго.</p>
+                    <a href="history-mongol-invasion.html">Читать тему →</a>
                 </div>
             </div>
         </details>
@@ -396,17 +385,23 @@
         <!-- БЛОК 2: МОСКОВСКОЕ ГОСУДАРСТВО -->
         <details class="block-accordion" id="block-2">
             <summary class="block-header">
-                <span>👑 Московское государство (XIV–XVII вв.) <span class="block-counter">Скоро</span></span>
+                <span>👑 Московское государство (XIV–XVII вв.) <span class="block-counter">Готово</span></span>
             </summary>
             <div class="block-description">
-                Возвышение Москвы, собирание земель, Иван Грозный, Смутное время, первые Романовы.
+                Возвышение Москвы, Иван Грозный, Смутное время, воцарение Романовых.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">⏳</div>
-                    <h3>Скоро будет доступно</h3>
-                    <p>Темы по Московскому государству находятся в разработке.</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <div class="topic-icon">🏛️</div>
+                    <h3>Возвышение Москвы и Иван Грозный</h3>
+                    <p>Куликовская битва, реформы Ивана IV, опричнина.</p>
+                    <a href="history-moscow-state.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">💥</div>
+                    <h3>Смутное время и начало Романовых</h3>
+                    <p>Голод, самозванцы, ополчение Минина и Пожарского, избрание Михаила.</p>
+                    <a href="history-smut-time.html">Читать тему →</a>
                 </div>
             </div>
         </details>
@@ -414,17 +409,35 @@
         <!-- БЛОК 3: РОССИЙСКАЯ ИМПЕРИЯ -->
         <details class="block-accordion" id="block-3">
             <summary class="block-header">
-                <span>🦅 Российская империя (XVIII–XIX вв.) <span class="block-counter">Скоро</span></span>
+                <span>🦅 Российская империя (XVIII–XIX вв.) <span class="block-counter">Готово</span></span>
             </summary>
             <div class="block-description">
-                Пётр I и его реформы, дворцовые перевороты, Екатерина II, Отечественная война 1812 года, отмена крепостного права.
+                Пётр I, дворцовые перевороты, Екатерина II, войны 1812 года, реформы Александра II.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">⏳</div>
-                    <h3>Скоро будет доступно</h3>
-                    <p>Темы по Российской империи находятся в разработке.</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <div class="topic-icon">🚢</div>
+                    <h3>Пётр I и его реформы</h3>
+                    <p>Северная война, создание флота, Сенат, губернии, культура.</p>
+                    <a href="history-peter-the-great.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">👑</div>
+                    <h3>Екатерина II и Просвещённый абсолютизм</h3>
+                    <p>Жалованные грамоты, восстание Пугачёва, разделы Польши.</p>
+                    <a href="history-catherine-the-great.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🔥</div>
+                    <h3>Отечественная война 1812 года</h3>
+                    <p>Наполеон, Бородино, пожар Москвы, изгнание врага.</p>
+                    <a href="history-war-1812.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">⛓️</div>
+                    <h3>Отмена крепостного права</h3>
+                    <p>Александр II, Великие реформы, земства, суд.</p>
+                    <a href="history-abolition-serfdom.html">Читать тему →</a>
                 </div>
             </div>
         </details>
@@ -432,17 +445,35 @@
         <!-- БЛОК 4: XX ВЕК -->
         <details class="block-accordion" id="block-4">
             <summary class="block-header">
-                <span>⚔️ XX век <span class="block-counter">Скоро</span></span>
+                <span>⚔️ XX век <span class="block-counter">Готово</span></span>
             </summary>
             <div class="block-description">
-                Революция 1917 года, Гражданская война, СССР, индустриализация, Великая Отечественная война, Холодная война, перестройка.
+                Революции, СССР, Вторая мировая война, Холодная война, распад СССР.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">⏳</div>
-                    <h3>Скоро будет доступно</h3>
-                    <p>Темы по XX веку находятся в разработке.</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <div class="topic-icon">🇷🇺</div>
+                    <h3>Революция 1917 года и Гражданская война</h3>
+                    <p>Февральская и Октябрьская революции, Красные и Белые, интервенция.</p>
+                    <a href="history-revolution-1917.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🏭</div>
+                    <h3>СССР в 1920-1930-е годы</h3>
+                    <p>НЭП, индустриализация, коллективизация, репрессии.</p>
+                    <a href="history-ussr-prewar.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🎖️</div>
+                    <h3>Великая Отечественная война</h3>
+                    <p>1941-1945, ключевые битвы, блокада Ленинграда, победа.</p>
+                    <a href="history-great-patriotic-war.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🌍</div>
+                    <h3>Послевоенный СССР и Холодная война</h3>
+                    <p>Сталин, Хрущёв, Брежнев, космос, конфликт с США.</p>
+                    <a href="history-cold-war.html">Читать тему →</a>
                 </div>
             </div>
         </details>
@@ -450,17 +481,23 @@
         <!-- БЛОК 5: СОВРЕМЕННАЯ РОССИЯ -->
         <details class="block-accordion" id="block-5">
             <summary class="block-header">
-                <span>🇷🇺 Современная Россия (1991–наши дни) <span class="block-counter">Скоро</span></span>
+                <span>🇷🇺 Современная Россия (1991–наши дни) <span class="block-counter">Готово</span></span>
             </summary>
             <div class="block-description">
-                Распад СССР, реформы 1990-х, современная Россия, ключевые события и достижения.
+                Распад СССР, Ельцин, Путин, Конституция 1993, современная политика.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">⏳</div>
-                    <h3>Скоро будет доступно</h3>
-                    <p>Темы по современной России находятся в разработке.</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <div class="topic-icon">📉</div>
+                    <h3>Распад СССР и 1990-е годы</h3>
+                    <p>Перестройка, ГКЧП, шоковая терапия, кризис 1998 года.</p>
+                    <a href="history-modern-russia-90s.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🏗️</div>
+                    <h3>Россия в 2000-х и 2010-х</h3>
+                    <p>Стабилизация экономики, национальные проекты, внешняя политика.</p>
+                    <a href="history-modern-russia-2000s.html">Читать тему →</a>
                 </div>
             </div>
         </details>
