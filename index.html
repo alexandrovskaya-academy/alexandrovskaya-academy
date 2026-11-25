@@ -55,13 +55,85 @@
         .feature-card a:hover {
             background: #764ba2;
         }
+
+        /* Блок контактов */
+        .contacts-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contacts-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        .contacts-section .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .contact-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+        .contact-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .contact-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .contact-card p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .contact-card a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .contact-card a:hover {
+            background: #f8f9fa;
+            transform: scale(1.05);
+        }
+        .contact-card.coming-soon a {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Александровская Академия</h1>
-            <p class="subtitle">История и обществознание для подготовки к экзаменам</p>
+            <p class="subtitle">Лучшие теоретические материалы и курсы для подготовки к ОГЭ и ЕГЭ</p>
             <nav>
                 <a href="index.html" style="text-decoration: underline;">Главная</a>
                 <a href="history.html">История</a>
@@ -74,7 +146,7 @@
 
     <section class="hero">
         <h1>Добро пожаловать!</h1>
-        <p>Подготовка к ЕГЭ и ОГЭ по истории и обществознанию</p>
+        <p>Подготовка к ЕГЭ и ОГЭ</p>
     </section>
 
     <main class="features">
@@ -95,10 +167,28 @@
         </div>
     </main>
 
-    <footer id="contact">
+    <section class="contacts-section" id="contact">
+        <h2>📬 Связаться со мной</h2>
+        <p class="subtitle">Запишитесь на индивидуальное занятие, задайте вопрос или получите консультацию по подготовке к экзаменам</p>
+        
+        <div class="contacts-grid">
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <h3>ВКонтакте</h3>
+                <p>Пишите в личные сообщения — отвечаю в течение дня</p>
+                <a href="https://vk.ru/id587048533" target="_blank">Написать в ВК →</a>
+            </div>
+            <div class="contact-card coming-soon">
+                <div class="contact-icon">🤖</div>
+                <h3>Telegram-бот</h3>
+                <p>Автоматическая запись на занятия и получение материалов</p>
+                <a href="#">Скоро →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="container">
-            <h2>Контакты</h2>
-            <p>Свяжитесь с Александром для записи на занятия</p>
             <p>&copy; 2026 Александровская Академия. Все права защищены.</p>
         </div>
     </footer>
