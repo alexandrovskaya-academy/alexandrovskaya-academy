@@ -6,24 +6,325 @@
     <title>Обществознание | Александровская Академия</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --text-muted: #666;
+            --border-color: #eef2f6;
+            --hover-bg: #f0fdf4;
+            --accent: #11998e;
+            --accent-dark: #0e7a72;
+        }
+
+        body.dark-theme {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --hover-bg: #1e3a3a;
+            --accent: #38ef7d;
+            --accent-dark: #11998e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
         .social-hero { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 60px 20px; text-align: center; border-radius: 0 0 20px 20px; margin-bottom: 40px; }
         .social-hero h1 { margin: 0; font-size: 2.5em; }
         .social-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.2em; }
-        .content-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
-        .block-accordion { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 20px; overflow: hidden; border: 1px solid #eef2f6; }
-        .block-header { padding: 25px 30px; font-size: 1.5em; font-weight: bold; color: #11998e; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; }
+        .content-container { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+
+        /* Панель управления */
+        .control-panel {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1em;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .control-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Быстрая навигация */
+        .quick-nav {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .quick-nav-label {
+            font-weight: bold;
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        .quick-nav a {
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .quick-nav a:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* Блоки аккордеона */
+        .block-accordion {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            scroll-margin-top: 20px;
+        }
+
+        .block-header {
+            padding: 25px 30px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--accent);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
         .block-header::-webkit-details-marker { display: none; }
-        .block-header:hover { background: #f0fdf4; }
-        .block-header::after { content: '+'; font-size: 1.5em; font-weight: bold; transition: transform 0.3s; }
+        .block-header:hover { background: var(--hover-bg); }
+        .block-header::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
         details[open] .block-header::after { content: '−'; }
-        .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 0 30px 30px 30px; border-top: 1px solid #eef2f6; }
-        .topic-card { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #11998e; transition: transform 0.2s, box-shadow 0.2s; }
-        .topic-card:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .topic-card h3 { margin: 0 0 10px 0; color: #333; font-size: 1.1em; }
-        .topic-card p { color: #666; margin: 0 0 15px 0; line-height: 1.4; font-size: 0.9em; }
-        .topic-card a { display: inline-block; background: #11998e; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none; font-size: 0.9em; transition: background 0.3s; }
-        .topic-card a:hover { background: #0e7a72; }
-        @media (max-width: 768px) { .social-hero h1 { font-size: 1.8em; } .topics-grid { grid-template-columns: 1fr; } .block-header { font-size: 1.2em; padding: 20px; } }
+
+        .block-description {
+            padding: 0 30px 15px 30px;
+            color: var(--text-muted);
+            font-size: 0.95em;
+            font-style: italic;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .block-counter {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+
+        /* Карточки тем */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 25px 30px 30px 30px;
+        }
+
+        .topic-card {
+            background: var(--bg-color);
+            padding: 22px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(17, 153, 142, 0.05) 0%, rgba(56, 239, 125, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(17, 153, 142, 0.2);
+            border-left-width: 8px;
+        }
+
+        .topic-card:hover::before {
+            opacity: 1;
+        }
+
+        .topic-card.hidden {
+            display: none;
+        }
+
+        .topic-icon {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+        }
+
+        .topic-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        .topic-card p {
+            color: var(--text-muted);
+            margin: 0 0 15px 0;
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+
+        .topic-card a {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 9px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .topic-card a:hover {
+            background: var(--accent-dark);
+            transform: translateX(3px);
+        }
+
+        /* Кнопка "Наверх" */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Сообщение "не найдено" */
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 1.1em;
+            display: none;
+        }
+
+        .no-results.visible {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .social-hero h1 { font-size: 1.8em; }
+            .topics-grid { grid-template-columns: 1fr; }
+            .block-header { font-size: 1.1em; padding: 20px; }
+            .control-panel { flex-direction: column; }
+            .search-box { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -36,78 +337,121 @@
                 <a href="history.html">История</a>
                 <a href="social-studies.html" style="text-decoration: underline;">Обществознание</a>
                 <a href="tests.html">Тесты</a>
-                <a href="#contact">Контакты</a>
+                <a href="index.html#contact">Контакты</a>
             </nav>
         </div>
     </header>
 
     <section class="social-hero">
         <h1>🧠 Курс Обществознания</h1>
-        <p>Все 5 блоков кодификатора ЕГЭ • Нажми на блок, чтобы выбрать тему</p>
+        <p>Все 5 блоков кодификатора ЕГЭ и ОГЭ • Поиск, фильтры и удобная навигация</p>
     </section>
 
     <main class="content-container">
 
+        <!-- Панель управления -->
+        <div class="control-panel">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск темы (например: мораль, рынок, право)...">
+            </div>
+            <div class="control-buttons">
+                <button class="control-btn" onclick="randomTopic()">🎲 Случайная тема</button>
+                <button class="control-btn" onclick="toggleTheme()">🌙 Тёмная тема</button>
+            </div>
+        </div>
+
+        <!-- Быстрая навигация -->
+        <div class="quick-nav">
+            <span class="quick-nav-label">📌 Быстрый переход:</span>
+            <a href="#block-1">1. Человек и общество</a>
+            <a href="#block-2">2. Экономика</a>
+            <a href="#block-3">3. Социальная сфера</a>
+            <a href="#block-4">4. Политика</a>
+            <a href="#block-5">5. Право</a>
+        </div>
+
+        <!-- Сообщение "не найдено" -->
+        <div class="no-results" id="noResults">
+            🔍 По вашему запросу ничего не найдено. Попробуйте изменить запрос.
+        </div>
+
         <!-- БЛОК 1: ЧЕЛОВЕК И ОБЩЕСТВО -->
-        <details class="block-accordion">
-            <summary class="block-header">1. Человек и общество. Духовная культура</summary>
+        <details class="block-accordion" id="block-1">
+            <summary class="block-header">
+                <span>📚 1. Человек и общество. Духовная культура <span class="block-counter">12 тем</span></span>
+            </summary>
+            <div class="block-description">
+                Базовый блок о человеке как биосоциальном существе, его деятельности, познании, культуре, морали, науке, образовании и религии. Фундамент для понимания всего курса.
+            </div>
             <div class="topics-grid">
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Человек как биосоциальное существо</h3>
                     <p>Биологическое и социальное в человеке. Индивид, индивидуальность, личность. Социализация.</p>
                     <a href="social-priroda-cheloveka.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Сознание и самосознание</h3>
                     <p>Индивидуальное и общественное сознание. Самосознание. Социальное поведение.</p>
                     <a href="social-soznanie.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Познание, мышление и истина</h3>
                     <p>Чувственное и рациональное познание. Мышление. Истина и её критерии.</p>
                     <a href="social-poznanie-myshlenie.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Общество как система и социальные институты</h3>
                     <p>Сферы жизни общества. Общественные отношения. Социальные институты.</p>
                     <a href="social-obschestvo-sistema.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Типы обществ. Массовая коммуникация</h3>
                     <p>Традиционное, индустриальное, постиндустриальное общество. Массовая коммуникация.</p>
                     <a href="social-tipy-obschestv.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Общественный прогресс. Глобализация</h3>
                     <p>Прогресс, регресс, стагнация. Реформа, эволюция, революция. Глобальные проблемы.</p>
                     <a href="social-progress.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Духовные ценности российского общества</h3>
                     <p>Традиционные ценности. Вклад российской культуры. Указ Президента № 400.</p>
                     <a href="social-dukhnost-tsennosti.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Культура: формы, функции, виды</h3>
                     <p>Материальная и духовная культура. Элитарная, народная, массовая. Функции культуры.</p>
                     <a href="social-kultura.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Мораль и нравственность</h3>
                     <p>Категории морали. Функции морали. Патриотизм и гражданственность.</p>
                     <a href="social-moral.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Наука и научное познание</h3>
                     <p>Критерии научности. Функции науки. Уровни и методы научного познания.</p>
                     <a href="social-nauka.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Образование в современном обществе</h3>
                     <p>Функции образования. Тенденции развития. Самообразование. ЦОР.</p>
                     <a href="social-obrazovanie.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Религия и искусство</h3>
                     <p>Виды религий. Функции религии. Свобода совести. Искусство и его функции.</p>
                     <a href="social-religiya-iskusstvo.html">Читать тему →</a>
@@ -116,55 +460,70 @@
         </details>
 
         <!-- БЛОК 2: ЭКОНОМИКА -->
-        <details class="block-accordion">
-            <summary class="block-header">2. Экономическая жизнь общества</summary>
+        <details class="block-accordion" id="block-2">
+            <summary class="block-header">
+                <span>💰 2. Экономическая жизнь общества <span class="block-counter">10 тем</span></span>
+            </summary>
+            <div class="block-description">
+                Изучаем экономику как науку и хозяйство: от основ и рыночных механизмов до роли государства, финансов, банков и мировой экономики.
+            </div>
             <div class="topics-grid">
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Основы экономической науки</h3>
                     <p>Экономика как наука и хозяйство. Экономические институты. Собственность. Главные вопросы экономики.</p>
                     <a href="social-ekonomika-osnovy.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Экономические системы и КПВ</h3>
                     <p>Традиционная, рыночная, плановая, смешанная системы. Ограниченность ресурсов. Кривая производственных возможностей.</p>
                     <a href="social-ekonomicheskie-sistemy.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Рынок и конкуренция</h3>
                     <p>Типы рынков. Совершенная и несовершенная конкуренция. Монополия, олигополия. Защита конкуренции.</p>
                     <a href="social-rynok-i-konkurenciya.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Рынок труда и безработица</h3>
                     <p>Спрос и предложение на рынке труда. Зарплата. Виды безработицы. Профсоюзы.</p>
                     <a href="social-rynok-truda.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Предприятие и издержки</h3>
                     <p>Функции фирмы. Факторы производства. Издержки. Выручка и прибыль. Импортозамещение.</p>
                     <a href="social-predpriyatie-i-izderzhki.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Предпринимательство и его формы</h3>
                     <p>Признаки и виды предпринимательства. ИП, ООО, АО, кооперативы, унитарные предприятия.</p>
                     <a href="social-predprinimatelstvo.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Фондовый рынок и ценные бумаги</h3>
                     <p>Акция, облигация, вексель, чек. Свойства и функции ценных бумаг.</p>
                     <a href="social-fondovyi-rynok.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Банки, инфляция и финансовые услуги</h3>
                     <p>Банковская система. ЦБ РФ. Монетарная политика. Инфляция. Вклады и кредиты.</p>
                     <a href="social-banki-i-inflyaciya.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Государство в экономике. Бюджет и налоги</h3>
                     <p>Экономические функции государства. Общественные блага. Бюджет. Налоги. Фискальная политика.</p>
                     <a href="social-gosudarstvo-v-ekonomike.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
+                    <div class="topic-icon">📚</div>
                     <h3>Макроэкономика и мировая экономика</h3>
                     <p>ВВП и ВНП. Экономический рост и циклы. Мировая экономика. Международная торговля.</p>
                     <a href="social-makroekonomika.html">Читать тему →</a>
@@ -173,10 +532,16 @@
         </details>
 
         <!-- БЛОК 3: СОЦИАЛЬНЫЕ ОТНОШЕНИЯ -->
-        <details class="block-accordion">
-            <summary class="block-header">3. Социальная сфера</summary>
+        <details class="block-accordion" id="block-3">
+            <summary class="block-header">
+                <span>👥 3. Социальная сфера <span class="block-counter">Скоро</span></span>
+            </summary>
+            <div class="block-description">
+                Социальная структура и стратификация, мобильность, семья, молодёжь, этносы, социальные нормы и конфликты.
+            </div>
             <div class="topics-grid">
                 <div class="topic-card">
+                    <div class="topic-icon">⏳</div>
                     <h3>Скоро будет доступно</h3>
                     <p>Социальная структура и стратификация. Семья. Этнос. Социальные нормы и конфликты.</p>
                     <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
@@ -185,10 +550,16 @@
         </details>
 
         <!-- БЛОК 4: ПОЛИТИКА -->
-        <details class="block-accordion">
-            <summary class="block-header">4. Политическая сфера</summary>
+        <details class="block-accordion" id="block-4">
+            <summary class="block-header">
+                <span>🏛️ 4. Политическая сфера <span class="block-counter">Скоро</span></span>
+            </summary>
+            <div class="block-description">
+                Власть, государство, политическая система, демократия, партии, идеологии, выборы, гражданское общество.
+            </div>
             <div class="topics-grid">
                 <div class="topic-card">
+                    <div class="topic-icon">⏳</div>
                     <h3>Скоро будет доступно</h3>
                     <p>Власть и государство. Политическая система. Партии и идеологии. Выборы.</p>
                     <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
@@ -197,10 +568,16 @@
         </details>
 
         <!-- БЛОК 5: ПРАВО -->
-        <details class="block-accordion">
-            <summary class="block-header">5. Правовое регулирование</summary>
+        <details class="block-accordion" id="block-5">
+            <summary class="block-header">
+                <span>⚖️ 5. Правовое регулирование <span class="block-counter">Скоро</span></span>
+            </summary>
+            <div class="block-description">
+                Право и Конституция РФ, отрасли права: гражданское, трудовое, семейное, уголовное, административное. Судопроизводство.
+            </div>
             <div class="topics-grid">
                 <div class="topic-card">
+                    <div class="topic-icon">⏳</div>
                     <h3>Скоро будет доступно</h3>
                     <p>Право и Конституция. Отрасли права. Гражданское, трудовое, семейное, уголовное право.</p>
                     <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
@@ -210,10 +587,85 @@
 
     </main>
 
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
     <footer>
         <div class="container">
             <p>&copy; 2026 Александровская Академия. Все права защищены.</p>
         </div>
     </footer>
+
+    <script>
+        // Поиск по темам
+        const searchInput = document.getElementById('searchInput');
+        const topicCards = document.querySelectorAll('.topic-card');
+        const blockAccordions = document.querySelectorAll('.block-accordion');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            topicCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Автоматически раскрываем блоки, если в них есть найденные темы
+            blockAccordions.forEach(block => {
+                const visibleCards = block.querySelectorAll('.topic-card:not(.hidden)');
+                if (visibleCards.length > 0 && query !== '') {
+                    block.setAttribute('open', '');
+                }
+            });
+
+            // Показываем сообщение, если ничего не найдено
+            if (visibleCount === 0 && query !== '') {
+                noResults.classList.add('visible');
+            } else {
+                noResults.classList.remove('visible');
+            }
+        });
+
+        // Случайная тема
+        function randomTopic() {
+            const links = Array.from(document.querySelectorAll('.topic-card a[href]:not([href="#"])'));
+            if (links.length === 0) return;
+            const randomLink = links[Math.floor(Math.random() * links.length)];
+            window.location.href = randomLink.href;
+        }
+
+        // Тёмная тема
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Восстановление темы при загрузке
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+
+        // Кнопка "Наверх"
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
