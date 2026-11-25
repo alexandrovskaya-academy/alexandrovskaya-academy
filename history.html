@@ -13,7 +13,7 @@
             --text-muted: #666;
             --border-color: #eef2f6;
             --hover-bg: #f5f3ff;
-            --accent: #667eea; /* Фиолетовый цвет истории */
+            --accent: #667eea;
             --accent-dark: #764ba2;
         }
 
@@ -39,7 +39,6 @@
         .history-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.2em; }
         .content-container { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
 
-        /* Панель управления */
         .control-panel {
             background: var(--card-bg);
             border-radius: 12px;
@@ -53,12 +52,7 @@
             justify-content: space-between;
         }
 
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-            position: relative;
-        }
-
+        .search-box { flex: 1; min-width: 250px; position: relative; }
         .search-box input {
             width: 100%;
             padding: 12px 15px 12px 40px;
@@ -69,12 +63,7 @@
             color: var(--text-color);
             transition: border-color 0.3s;
         }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
+        .search-box input:focus { outline: none; border-color: var(--accent); }
         .search-box::before {
             content: '🔍';
             position: absolute;
@@ -84,12 +73,7 @@
             font-size: 1.1em;
         }
 
-        .control-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
+        .control-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
         .control-btn {
             background: var(--accent);
             color: white;
@@ -101,13 +85,8 @@
             font-weight: 500;
             transition: background 0.3s, transform 0.2s;
         }
+        .control-btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
-        .control-btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Быстрая навигация */
         .quick-nav {
             background: var(--card-bg);
             border-radius: 12px;
@@ -119,13 +98,7 @@
             gap: 10px;
             align-items: center;
         }
-
-        .quick-nav-label {
-            font-weight: bold;
-            color: var(--accent);
-            margin-right: 10px;
-        }
-
+        .quick-nav-label { font-weight: bold; color: var(--accent); margin-right: 10px; }
         .quick-nav a {
             background: var(--bg-color);
             color: var(--text-color);
@@ -136,14 +109,8 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s;
         }
+        .quick-nav a:hover { background: var(--accent); color: white; border-color: var(--accent); }
 
-        .quick-nav a:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-
-        /* Блоки аккордеона */
         .block-accordion {
             background: var(--card-bg);
             border-radius: 12px;
@@ -153,7 +120,6 @@
             border: 1px solid var(--border-color);
             scroll-margin-top: 20px;
         }
-
         .block-header {
             padding: 25px 30px;
             font-size: 1.4em;
@@ -166,7 +132,6 @@
             align-items: center;
             transition: background 0.3s;
         }
-
         .block-header::-webkit-details-marker { display: none; }
         .block-header:hover { background: var(--hover-bg); }
         .block-header::after {
@@ -196,7 +161,6 @@
             font-weight: normal;
         }
 
-        /* Карточки тем */
         .topics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -213,35 +177,16 @@
             position: relative;
             overflow: hidden;
         }
-
         .topic-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
             border-left-width: 8px;
         }
+        .topic-card.hidden { display: none; }
 
-        .topic-card.hidden {
-            display: none;
-        }
-
-        .topic-icon {
-            font-size: 1.5em;
-            margin-bottom: 8px;
-        }
-
-        .topic-card h3 {
-            margin: 0 0 10px 0;
-            color: var(--text-color);
-            font-size: 1.1em;
-        }
-
-        .topic-card p {
-            color: var(--text-muted);
-            margin: 0 0 15px 0;
-            line-height: 1.5;
-            font-size: 0.9em;
-        }
-
+        .topic-icon { font-size: 1.5em; margin-bottom: 8px; }
+        .topic-card h3 { margin: 0 0 10px 0; color: var(--text-color); font-size: 1.1em; }
+        .topic-card p { color: var(--text-muted); margin: 0 0 15px 0; line-height: 1.5; font-size: 0.9em; }
         .topic-card a {
             display: inline-block;
             background: var(--accent);
@@ -252,13 +197,8 @@
             font-size: 0.9em;
             transition: all 0.3s;
         }
+        .topic-card a:hover { background: var(--accent-dark); transform: translateX(3px); }
 
-        .topic-card a:hover {
-            background: var(--accent-dark);
-            transform: translateX(3px);
-        }
-
-        /* Кнопка "Наверх" */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -277,18 +217,9 @@
             transition: all 0.3s;
             z-index: 1000;
         }
+        .scroll-top.visible { opacity: 1; visibility: visible; }
+        .scroll-top:hover { background: var(--accent-dark); transform: translateY(-3px); }
 
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            background: var(--accent-dark);
-            transform: translateY(-3px);
-        }
-
-        /* Сообщение "не найдено" */
         .no-results {
             text-align: center;
             padding: 40px;
@@ -296,10 +227,7 @@
             font-size: 1.1em;
             display: none;
         }
-
-        .no-results.visible {
-            display: block;
-        }
+        .no-results.visible { display: block; }
 
         @media (max-width: 768px) {
             .history-hero h1 { font-size: 1.8em; }
@@ -326,8 +254,8 @@
     </header>
 
     <section class="history-hero">
-        <h1>📚 Курс Истории</h1>
-        <p>Все периоды истории России • Поиск, фильтры и удобная навигация</p>
+        <h1>📚 Курс Истории России</h1>
+        <p>Все периоды от Древней Руси до современности • Поиск и удобная навигация</p>
     </section>
 
     <main class="content-container">
@@ -358,86 +286,182 @@
             🔍 По вашему запросу ничего не найдено. Попробуйте изменить запрос.
         </div>
 
-        <!-- БЛОК 1: ДРЕВНЯЯ РУСЬ -->
+        <!-- БЛОК 1: ДРЕВНЯЯ РУСЬ (IX–XIII вв.) -->
         <details class="block-accordion" id="block-1">
             <summary class="block-header">
-                <span>🏰 Древняя Русь (IX–XIII вв.) <span class="block-counter">Готово</span></span>
+                <span>🏰 Древняя Русь (IX–XIII вв.) <span class="block-counter">6 тем</span></span>
             </summary>
             <div class="block-description">
-                Образование государства, первые князья, крещение Руси, феодальная раздробленность, монгольское нашествие.
+                Восточные славяне, первые князья, крещение Руси, Владимир-Суздальская Русь, феодальная раздробленность, монгольское нашествие.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">📜</div>
-                    <h3>Древняя Русь и первые князья</h3>
-                    <p>Рюрик, Олег, Ольга, Святослав, Владимир, Ярослав Мудрый.</p>
-                    <a href="history-ancient-rus.html">Читать тему →</a>
+                    <div class="topic-icon">🌾</div>
+                    <h3>Восточные славяне</h3>
+                    <p>Расселение, быт, верования, общественный строй восточных славян.</p>
+                    <a href="history-vost-slavyane.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">👑</div>
+                    <h3>Первые князья</h3>
+                    <p>Рюрик, Олег, Игорь, Ольга, Святослав — начало русской государственности.</p>
+                    <a href="history-first-knyazya.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">✝️</div>
+                    <h3>Владимир и крещение Руси</h3>
+                    <p>Выбор веры, крещение 988 года, значение для русской цивилизации.</p>
+                    <a href="history-vladimir.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🏛️</div>
+                    <h3>Владимиро-Суздальская Русь</h3>
+                    <p>Возвышение Владимиро-Суздальского княжества, Андрей Боголюбский, Всеволод Большое Гнездо.</p>
+                    <a href="history-vladimir-suzdal.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">⚔️</div>
-                    <h3>Монгольское нашествие и Александр Невский</h3>
-                    <p>Битва на Калке, нашествие Батыя, Ледовое побоище, ордынское иго.</p>
-                    <a href="history-mongol-invasion.html">Читать тему →</a>
+                    <h3>Феодальная раздробленность</h3>
+                    <p>Причины, последствия, удельные княжества, борьба за власть.</p>
+                    <a href="history-razdroblennost.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🏹</div>
+                    <h3>Монгольское нашествие</h3>
+                    <p>Битва на Калке, нашествие Батыя, ордынское иго, Александр Невский.</p>
+                    <a href="history-mongoly.html">Читать тему →</a>
                 </div>
             </div>
         </details>
 
-        <!-- БЛОК 2: МОСКОВСКОЕ ГОСУДАРСТВО -->
+        <!-- БЛОК 2: МОСКОВСКОЕ ГОСУДАРСТВО (XIV–XVII вв.) -->
         <details class="block-accordion" id="block-2">
             <summary class="block-header">
-                <span>👑 Московское государство (XIV–XVII вв.) <span class="block-counter">Готово</span></span>
+                <span>👑 Московское государство (XIV–XVII вв.) <span class="block-counter">9 тем</span></span>
             </summary>
             <div class="block-description">
-                Возвышение Москвы, Иван Грозный, Смутное время, воцарение Романовых.
+                Возвышение Москвы, Литовское княжество, Иван III и Иван IV, Смутное время, начало династии Романовых, культура XIV–XVII вв.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">🏛️</div>
-                    <h3>Возвышение Москвы и Иван Грозный</h3>
-                    <p>Куликовская битва, реформы Ивана IV, опричнина.</p>
-                    <a href="history-moscow-state.html">Читать тему →</a>
+                    <div class="topic-icon">🏰</div>
+                    <h3>Возвышение Москвы</h3>
+                    <p>Причины усиления Москвы, Куликовская битва, собирание земель.</p>
+                    <a href="history-moskva.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🦁</div>
+                    <h3>Великое княжество Литовское</h3>
+                    <p>Образование, расширение, отношения с Москвой, объединение с Польшей.</p>
+                    <a href="history-lithuania.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📜</div>
+                    <h3>Иван III</h3>
+                    <p>Стояние на Угре 1480 г., свержение ига, создание единого государства, Судебник.</p>
+                    <a href="history-ivan3.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🗡️</div>
+                    <h3>XVI век</h3>
+                    <p>Общая характеристика России XVI века: политика, экономика, общество.</p>
+                    <a href="history-16-century.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">⚔️</div>
+                    <h3>Иван IV Грозный</h3>
+                    <p>Реформы Избранной рады, Ливонская война, опричнина, покорение Сибири.</p>
+                    <a href="history-ivan4.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">💥</div>
-                    <h3>Смутное время и начало Романовых</h3>
-                    <p>Голод, самозванцы, ополчение Минина и Пожарского, избрание Михаила.</p>
-                    <a href="history-smut-time.html">Читать тему →</a>
+                    <h3>Смутное время</h3>
+                    <p>Династический кризис, самозванцы, польско-шведская интервенция, освобождение Москвы.</p>
+                    <a href="history-smuta.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">👑</div>
+                    <h3>Начало династии Романовых</h3>
+                    <p>Михаил Фёдорович, Алексей Тишайший, восстановление государства.</p>
+                    <a href="history-romanovy.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🎨</div>
+                    <h3>Культура XIV–XV вв.</h3>
+                    <p>Андрей Рублёв, литература, зодчество, иконопись Московской Руси.</p>
+                    <a href="history-culture-14-15.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🖼️</div>
+                    <h3>Культура XVI–XVII вв.</h3>
+                    <p>Домострой, шатровые храмы, Симеон Полоцкий, начало светской культуры.</p>
+                    <a href="history-culture-16-17.html">Читать тему →</a>
                 </div>
             </div>
         </details>
 
-        <!-- БЛОК 3: РОССИЙСКАЯ ИМПЕРИЯ -->
+        <!-- БЛОК 3: РОССИЙСКАЯ ИМПЕРИЯ (XVIII–XIX вв.) -->
         <details class="block-accordion" id="block-3">
             <summary class="block-header">
-                <span>🦅 Российская империя (XVIII–XIX вв.) <span class="block-counter">Готово</span></span>
+                <span>🦅 Российская империя (XVIII–XIX вв.) <span class="block-counter">8 тем</span></span>
             </summary>
             <div class="block-description">
-                Пётр I, дворцовые перевороты, Екатерина II, войны 1812 года, реформы Александра II.
+                Пётр I и его реформы, дворцовые перевороты, Екатерина II, Павел I, Александр I, Николай I, Александр II, Александр III, Николай II.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
                     <div class="topic-icon">🚢</div>
                     <h3>Пётр I и его реформы</h3>
-                    <p>Северная война, создание флота, Сенат, губернии, культура.</p>
-                    <a href="history-peter-the-great.html">Читать тему →</a>
+                    <p>Северная война, создание флота, Сенат, губернии, культурные преобразования.</p>
+                    <a href="history-petr1.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🎭</div>
+                    <h3>Эпоха дворцовых переворотов</h3>
+                    <p>Екатерина I, Пётр II, Анна Иоанновна, Иван VI, Елизавета Петровна.</p>
+                    <a href="history-dvor-per.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">👑</div>
-                    <h3>Екатерина II и Просвещённый абсолютизм</h3>
-                    <p>Жалованные грамоты, восстание Пугачёва, разделы Польши.</p>
-                    <a href="history-catherine-the-great.html">Читать тему →</a>
+                    <h3>Екатерина II</h3>
+                    <p>Просвещённый абсолютизм, Жалованные грамоты, Пугачёв, разделы Польши.</p>
+                    <a href="history-ekaterina2.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">⚖️</div>
+                    <h3>Павел I</h3>
+                    <p>Внутренняя политика, закон о престолонаследии, убийство императора.</p>
+                    <a href="history-pavel1.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">🔥</div>
-                    <h3>Отечественная война 1812 года</h3>
-                    <p>Наполеон, Бородино, пожар Москвы, изгнание врага.</p>
-                    <a href="history-war-1812.html">Читать тему →</a>
+                    <h3>Александр I</h3>
+                    <p>Отечественная война 1812 года, Сперанский, Аракчеев, Священный союз.</p>
+                    <a href="history-alexander1.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">⛓️</div>
-                    <h3>Отмена крепостного права</h3>
-                    <p>Александр II, Великие реформы, земства, суд.</p>
-                    <a href="history-abolition-serfdom.html">Читать тему →</a>
+                    <h3>Александр II</h3>
+                    <p>Отмена крепостного права 1861 г., Великие реформы, земства, суд.</p>
+                    <a href="history-alexander2.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🛡️</div>
+                    <h3>Александр III</h3>
+                    <p>Контрреформы, народовольцы, промышленный подъём, миротворческая политика.</p>
+                    <a href="history-alexander3.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🏛️</div>
+                    <h3>Николай I</h3>
+                    <p>Декабристы, кодификация законов, цензура, Крымская война.</p>
+                    <a href="history-nicholas1.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🇷🇺</div>
+                    <h3>Николай II</h3>
+                    <p>Промышленный рост, Русско-японская война, революция 1905, Первая мировая.</p>
+                    <a href="history-nicholas2.html">Читать тему →</a>
                 </div>
             </div>
         </details>
@@ -445,35 +469,53 @@
         <!-- БЛОК 4: XX ВЕК -->
         <details class="block-accordion" id="block-4">
             <summary class="block-header">
-                <span>⚔️ XX век <span class="block-counter">Готово</span></span>
+                <span>⚔️ XX век <span class="block-counter">8 тем</span></span>
             </summary>
             <div class="block-description">
-                Революции, СССР, Вторая мировая война, Холодная война, распад СССР.
+                Революция 1917 года, Гражданская война, СССР в 1920-е, Великая Отечественная война, послевоенный СССР, оттепель, застой, перестройка.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">🇷🇺</div>
-                    <h3>Революция 1917 года и Гражданская война</h3>
+                    <div class="topic-icon">🚩</div>
+                    <h3>Революция 1917 и Гражданская война</h3>
                     <p>Февральская и Октябрьская революции, Красные и Белые, интервенция.</p>
-                    <a href="history-revolution-1917.html">Читать тему →</a>
+                    <a href="history-1917-civil-war.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">🏭</div>
-                    <h3>СССР в 1920-1930-е годы</h3>
-                    <p>НЭП, индустриализация, коллективизация, репрессии.</p>
-                    <a href="history-ussr-prewar.html">Читать тему →</a>
+                    <h3>СССР в 1920-е годы</h3>
+                    <p>НЭП, образование СССР, внутрипартийная борьба, индустриализация.</p>
+                    <a href="history-ussr-1920s.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">🎖️</div>
                     <h3>Великая Отечественная война</h3>
-                    <p>1941-1945, ключевые битвы, блокада Ленинграда, победа.</p>
-                    <a href="history-great-patriotic-war.html">Читать тему →</a>
+                    <p>1941–1945, ключевые битвы, блокада Ленинграда, победа над фашизмом.</p>
+                    <a href="history-ww2.html">Читать тему →</a>
                 </div>
                 <div class="topic-card">
                     <div class="topic-icon">🌍</div>
-                    <h3>Послевоенный СССР и Холодная война</h3>
-                    <p>Сталин, Хрущёв, Брежнев, космос, конфликт с США.</p>
-                    <a href="history-cold-war.html">Читать тему →</a>
+                    <h3>Послевоенный СССР</h3>
+                    <p>Восстановление экономики, начало Холодной войны, атомный проект.</p>
+                    <a href="history-postwar-ussr.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">☀️</div>
+                    <h3>Оттепель и расцвет СССР</h3>
+                    <p>Хрущёв, XX съезд, космос, «кукурузная» кампания, стабилизация.</p>
+                    <a href="history-rasvet.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🌾</div>
+                    <h3>Эпоха Брежнева</h3>
+                    <p>Застой, стабильность кадров, détente, Афганистан, дефицит.</p>
+                    <a href="history-brezhnev.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🔄</div>
+                    <h3>Перестройка</h3>
+                    <p>Горбачёв, гласность, ускорение, демократизация, распад СССР.</p>
+                    <a href="history-perestroika.html">Читать тему →</a>
                 </div>
             </div>
         </details>
@@ -481,23 +523,17 @@
         <!-- БЛОК 5: СОВРЕМЕННАЯ РОССИЯ -->
         <details class="block-accordion" id="block-5">
             <summary class="block-header">
-                <span>🇷🇺 Современная Россия (1991–наши дни) <span class="block-counter">Готово</span></span>
+                <span>🇷🇺 Современная Россия (1991–наши дни) <span class="block-counter">1 тема</span></span>
             </summary>
             <div class="block-description">
-                Распад СССР, Ельцин, Путин, Конституция 1993, современная политика.
+                Распад СССР, реформы 1990-х, современная Россия, ключевые события и достижения.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">📉</div>
-                    <h3>Распад СССР и 1990-е годы</h3>
-                    <p>Перестройка, ГКЧП, шоковая терапия, кризис 1998 года.</p>
-                    <a href="history-modern-russia-90s.html">Читать тему →</a>
-                </div>
-                <div class="topic-card">
                     <div class="topic-icon">🏗️</div>
-                    <h3>Россия в 2000-х и 2010-х</h3>
-                    <p>Стабилизация экономики, национальные проекты, внешняя политика.</p>
-                    <a href="history-modern-russia-2000s.html">Читать тему →</a>
+                    <h3>Постсоветская Россия</h3>
+                    <p>Ельцин, Конституция 1993, шоковая терапия, кризис 1998, современная Россия.</p>
+                    <a href="history-postsoviet.html">Читать тему →</a>
                 </div>
             </div>
         </details>
@@ -514,7 +550,6 @@
     </footer>
 
     <script>
-        // Поиск по темам
         const searchInput = document.getElementById('searchInput');
         const topicCards = document.querySelectorAll('.topic-card');
         const blockAccordions = document.querySelectorAll('.block-accordion');
@@ -534,7 +569,6 @@
                 }
             });
 
-            // Автоматически раскрываем блоки, если в них есть найденные темы
             blockAccordions.forEach(block => {
                 const visibleCards = block.querySelectorAll('.topic-card:not(.hidden)');
                 if (visibleCards.length > 0 && query !== '') {
@@ -542,7 +576,6 @@
                 }
             });
 
-            // Показываем сообщение, если ничего не найдено
             if (visibleCount === 0 && query !== '') {
                 noResults.classList.add('visible');
             } else {
@@ -550,7 +583,6 @@
             }
         });
 
-        // Случайная тема
         function randomTopic() {
             const links = Array.from(document.querySelectorAll('.topic-card a[href]:not([href="#"])'));
             if (links.length === 0) return;
@@ -558,19 +590,16 @@
             window.location.href = randomLink.href;
         }
 
-        // Тёмная тема
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
             const isDark = document.body.classList.contains('dark-theme');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
 
-        // Восстановление темы при загрузке
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-theme');
         }
 
-        // Кнопка "Наверх"
         const scrollTopBtn = document.getElementById('scrollTop');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
