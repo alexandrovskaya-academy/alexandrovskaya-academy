@@ -39,7 +39,6 @@
         .social-hero p { margin-top: 10px; opacity: 0.9; font-size: 1.2em; }
         .content-container { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
 
-        /* Панель управления */
         .control-panel {
             background: var(--card-bg);
             border-radius: 12px;
@@ -53,12 +52,7 @@
             justify-content: space-between;
         }
 
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-            position: relative;
-        }
-
+        .search-box { flex: 1; min-width: 250px; position: relative; }
         .search-box input {
             width: 100%;
             padding: 12px 15px 12px 40px;
@@ -69,12 +63,7 @@
             color: var(--text-color);
             transition: border-color 0.3s;
         }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
+        .search-box input:focus { outline: none; border-color: var(--accent); }
         .search-box::before {
             content: '🔍';
             position: absolute;
@@ -84,12 +73,7 @@
             font-size: 1.1em;
         }
 
-        .control-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
+        .control-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
         .control-btn {
             background: var(--accent);
             color: white;
@@ -101,13 +85,8 @@
             font-weight: 500;
             transition: background 0.3s, transform 0.2s;
         }
+        .control-btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
-        .control-btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Быстрая навигация */
         .quick-nav {
             background: var(--card-bg);
             border-radius: 12px;
@@ -119,13 +98,7 @@
             gap: 10px;
             align-items: center;
         }
-
-        .quick-nav-label {
-            font-weight: bold;
-            color: var(--accent);
-            margin-right: 10px;
-        }
-
+        .quick-nav-label { font-weight: bold; color: var(--accent); margin-right: 10px; }
         .quick-nav a {
             background: var(--bg-color);
             color: var(--text-color);
@@ -136,14 +109,8 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s;
         }
+        .quick-nav a:hover { background: var(--accent); color: white; border-color: var(--accent); }
 
-        .quick-nav a:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-
-        /* Блоки аккордеона */
         .block-accordion {
             background: var(--card-bg);
             border-radius: 12px;
@@ -153,7 +120,6 @@
             border: 1px solid var(--border-color);
             scroll-margin-top: 20px;
         }
-
         .block-header {
             padding: 25px 30px;
             font-size: 1.4em;
@@ -166,7 +132,6 @@
             align-items: center;
             transition: background 0.3s;
         }
-
         .block-header::-webkit-details-marker { display: none; }
         .block-header:hover { background: var(--hover-bg); }
         .block-header::after {
@@ -196,7 +161,6 @@
             font-weight: normal;
         }
 
-        /* Карточки тем */
         .topics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -213,52 +177,16 @@
             position: relative;
             overflow: hidden;
         }
-
-        .topic-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(17, 153, 142, 0.05) 0%, rgba(56, 239, 125, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-
         .topic-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(17, 153, 142, 0.2);
             border-left-width: 8px;
         }
+        .topic-card.hidden { display: none; }
 
-        .topic-card:hover::before {
-            opacity: 1;
-        }
-
-        .topic-card.hidden {
-            display: none;
-        }
-
-        .topic-icon {
-            font-size: 1.5em;
-            margin-bottom: 8px;
-        }
-
-        .topic-card h3 {
-            margin: 0 0 10px 0;
-            color: var(--text-color);
-            font-size: 1.1em;
-        }
-
-        .topic-card p {
-            color: var(--text-muted);
-            margin: 0 0 15px 0;
-            line-height: 1.5;
-            font-size: 0.9em;
-        }
-
+        .topic-icon { font-size: 1.5em; margin-bottom: 8px; }
+        .topic-card h3 { margin: 0 0 10px 0; color: var(--text-color); font-size: 1.1em; }
+        .topic-card p { color: var(--text-muted); margin: 0 0 15px 0; line-height: 1.5; font-size: 0.9em; }
         .topic-card a {
             display: inline-block;
             background: var(--accent);
@@ -269,13 +197,8 @@
             font-size: 0.9em;
             transition: all 0.3s;
         }
+        .topic-card a:hover { background: var(--accent-dark); transform: translateX(3px); }
 
-        .topic-card a:hover {
-            background: var(--accent-dark);
-            transform: translateX(3px);
-        }
-
-        /* Кнопка "Наверх" */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -294,18 +217,9 @@
             transition: all 0.3s;
             z-index: 1000;
         }
+        .scroll-top.visible { opacity: 1; visibility: visible; }
+        .scroll-top:hover { background: var(--accent-dark); transform: translateY(-3px); }
 
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            background: var(--accent-dark);
-            transform: translateY(-3px);
-        }
-
-        /* Сообщение "не найдено" */
         .no-results {
             text-align: center;
             padding: 40px;
@@ -313,10 +227,7 @@
             font-size: 1.1em;
             display: none;
         }
-
-        .no-results.visible {
-            display: block;
-        }
+        .no-results.visible { display: block; }
 
         @media (max-width: 768px) {
             .social-hero h1 { font-size: 1.8em; }
@@ -349,7 +260,6 @@
 
     <main class="content-container">
 
-        <!-- Панель управления -->
         <div class="control-panel">
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Поиск темы (например: мораль, рынок, право)...">
@@ -360,7 +270,6 @@
             </div>
         </div>
 
-        <!-- Быстрая навигация -->
         <div class="quick-nav">
             <span class="quick-nav-label">📌 Быстрый переход:</span>
             <a href="#block-1">1. Человек и общество</a>
@@ -370,7 +279,6 @@
             <a href="#block-5">5. Право</a>
         </div>
 
-        <!-- Сообщение "не найдено" -->
         <div class="no-results" id="noResults">
             🔍 По вашему запросу ничего не найдено. Попробуйте изменить запрос.
         </div>
@@ -630,24 +538,65 @@
         <!-- БЛОК 5: ПРАВО -->
         <details class="block-accordion" id="block-5">
             <summary class="block-header">
-                <span>⚖️ 5. Правовое регулирование <span class="block-counter">Скоро</span></span>
+                <span>⚖️ 5. Правовое регулирование <span class="block-counter">8 тем</span></span>
             </summary>
             <div class="block-description">
-                Право и Конституция РФ, отрасли права: гражданское, трудовое, семейное, уголовное, административное. Судопроизводство.
+                Основы права, источники и система права, правоотношения и ответственность, Конституция и права человека, гражданское, семейное, трудовое, административное, уголовное право.
             </div>
             <div class="topics-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">⏳</div>
-                    <h3>Скоро будет доступно</h3>
-                    <p>Право и Конституция. Отрасли права. Гражданское, трудовое, семейное, уголовное право.</p>
-                    <a href="#" style="background: #ccc; pointer-events: none;">Скоро →</a>
+                    <div class="topic-icon">📚</div>
+                    <h3>Основы права, источники и система права</h3>
+                    <p>Право как социальный институт. Источники права: обычай, прецедент, НПА. Система права и отрасли.</p>
+                    <a href="law-osnovy-i-istochniki.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📚</div>
+                    <h3>Правоотношения и юридическая ответственность</h3>
+                    <p>Правоотношения и их состав. Правомерное поведение и правонарушение. Виды юридической ответственности.</p>
+                    <a href="law-pravootnosheniya-i-otvetstvennost.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📚</div>
+                    <h3>Конституция и права человека</h3>
+                    <p>Конституция РФ и основы конституционного строя. Гражданство. Права, свободы и обязанности граждан.</p>
+                    <a href="law-konstituciya-i-prava.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📚</div>
+                    <h3>Гражданское, семейное и трудовое право</h3>
+                    <p>Гражданская дееспособность. Брак и брачный договор. Трудовой договор и особенности труда несовершеннолетних.</p>
+                    <a href="law-otrasli-prava.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📚</div>
+                    <h3>Налоговое и образовательное право</h3>
+                    <p>Налоги и налоговая система. Права и обязанности налогоплательщиков. Образовательное право.</p>
+                    <a href="law-nalogi-i-obrazovanie.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📚</div>
+                    <h3>Административное и экологическое право</h3>
+                    <p>Административные правонарушения и наказания. Экологическое право и ответственность.</p>
+                    <a href="law-admin-eco.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📚</div>
+                    <h3>Уголовное право</h3>
+                    <p>Преступления и наказания. Возраст уголовной ответственности. Особенности ответственности несовершеннолетних.</p>
+                    <a href="law-ugolovnoe.html">Читать тему →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📚</div>
+                    <h3>Процессуальное право и правоохранительные органы</h3>
+                    <p>Гражданский, арбитражный, административный, уголовный процесс. Правоохранительные органы РФ.</p>
+                    <a href="law-processual.html">Читать тему →</a>
                 </div>
             </div>
         </details>
 
     </main>
 
-    <!-- Кнопка "Наверх" -->
     <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
 
     <footer>
@@ -657,7 +606,6 @@
     </footer>
 
     <script>
-        // Поиск по темам
         const searchInput = document.getElementById('searchInput');
         const topicCards = document.querySelectorAll('.topic-card');
         const blockAccordions = document.querySelectorAll('.block-accordion');
@@ -677,7 +625,6 @@
                 }
             });
 
-            // Автоматически раскрываем блоки, если в них есть найденные темы
             blockAccordions.forEach(block => {
                 const visibleCards = block.querySelectorAll('.topic-card:not(.hidden)');
                 if (visibleCards.length > 0 && query !== '') {
@@ -685,7 +632,6 @@
                 }
             });
 
-            // Показываем сообщение, если ничего не найдено
             if (visibleCount === 0 && query !== '') {
                 noResults.classList.add('visible');
             } else {
@@ -693,7 +639,6 @@
             }
         });
 
-        // Случайная тема
         function randomTopic() {
             const links = Array.from(document.querySelectorAll('.topic-card a[href]:not([href="#"])'));
             if (links.length === 0) return;
@@ -701,19 +646,16 @@
             window.location.href = randomLink.href;
         }
 
-        // Тёмная тема
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
             const isDark = document.body.classList.contains('dark-theme');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
 
-        // Восстановление темы при загрузке
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-theme');
         }
 
-        // Кнопка "Наверх"
         const scrollTopBtn = document.getElementById('scrollTop');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
